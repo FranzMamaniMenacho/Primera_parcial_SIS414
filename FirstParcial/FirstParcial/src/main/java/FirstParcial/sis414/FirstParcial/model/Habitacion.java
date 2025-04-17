@@ -6,8 +6,7 @@ public class Habitacion {
     private TipoHabitacion tipo;
     private boolean disponible;
     private double precioNoche;
-
-    //constructor
+    
     public Habitacion(Long id,TipoHabitacion tipo, boolean disponible, double precioNoche)
     {
         this.id = id;
@@ -16,7 +15,6 @@ public class Habitacion {
         this.precioNoche = precioNoche;
     }
 
-    //    geter y seter
     public Long getId() {
         return id;
     }
