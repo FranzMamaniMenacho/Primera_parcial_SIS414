@@ -1,4 +1,4 @@
-package FirstParcial.sis414.FirstParcial.model;
+package FirstParcial.sis414.FirstParcial.entity
 public class Cliente {
     private Long id;
     private String nombres;
