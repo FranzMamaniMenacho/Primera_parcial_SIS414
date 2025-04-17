@@ -6,7 +6,7 @@ public class Habitacion {
     private TipoHabitacion tipo;
     private boolean disponible;
     private double precioNoche;
-    
+
     public Habitacion(Long id,TipoHabitacion tipo, boolean disponible, double precioNoche)
     {
         this.id = id;
