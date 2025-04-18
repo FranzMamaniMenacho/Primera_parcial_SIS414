@@ -6,7 +6,7 @@ public class Cliente {
     private String apellidos;
     private String ci;
     private String telefono;
-    private List<Reserva> reservas;
+    private List<Reserv> reservas;
 
     public Cliente(Long id, String nombres, String apellidos, String ci, String telefono){
         this.id = id;
@@ -53,11 +53,11 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public List<Reserva> getReservas() {
+    public List<Reserv> getReservas() {
         return reservas;
     }
 
-    public void setReservas(List<Reserva> reservas) {
+    public void setReservas(List<Reserv> reservas) {
         this.reservas = reservas;
     }
 }

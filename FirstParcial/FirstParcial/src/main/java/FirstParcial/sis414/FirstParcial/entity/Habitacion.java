@@ -47,5 +47,4 @@ public class Habitacion {
     }
 }
 
-//ignor este comentario
 

@@ -1,6 +1,6 @@
 package FirstParcial.sis414.FirstParcial.entity;
 import java.time.LocalDate;
-public class Reserva {
+public class Reserv {
 
     private Long id;
     private Cliente cliente;
