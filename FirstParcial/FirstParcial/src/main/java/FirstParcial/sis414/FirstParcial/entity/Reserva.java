@@ -66,4 +66,4 @@ public class Reserva {
         this.pago = pago;
     }
 }
-//ignorar
+
