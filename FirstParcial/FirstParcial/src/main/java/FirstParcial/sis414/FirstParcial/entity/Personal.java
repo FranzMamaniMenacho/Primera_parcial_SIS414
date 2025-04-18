@@ -1,3 +1,5 @@
+package FirstParcial.sis414.FirstParcial.entity;
+
 public class Personal {
     private String nombre;
     private String rol;

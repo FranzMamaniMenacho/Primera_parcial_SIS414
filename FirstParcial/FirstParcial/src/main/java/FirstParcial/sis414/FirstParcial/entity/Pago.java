@@ -1,3 +1,5 @@
+package FirstParcial.sis414.FirstParcial.entity;
+
 import java.util.Date;
 
 public class Pago {
