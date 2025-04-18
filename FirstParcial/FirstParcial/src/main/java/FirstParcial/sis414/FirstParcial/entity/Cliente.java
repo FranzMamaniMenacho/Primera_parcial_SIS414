@@ -1,5 +1,7 @@
 package FirstParcial.sis414.FirstParcial.entity;
 
+import java.util.List;
+
 public class Cliente {
     private Long id;
     private String nombres;
@@ -61,5 +63,3 @@ public class Cliente {
         this.reservas = reservas;
     }
 }
-
-

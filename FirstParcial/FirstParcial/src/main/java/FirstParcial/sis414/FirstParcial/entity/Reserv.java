@@ -9,7 +9,7 @@ public class Reserv {
     private LocalDate fechaSalida;
     private Pago pago;
 
-    public Reserva(Long id, Cliente cliente, Habitacion habitacion, LocalDate fechaEntrada, LocalDate fechaSalida, Pago pago) {
+    public Reserv(Long id, Cliente cliente, Habitacion habitacion, LocalDate fechaEntrada, LocalDate fechaSalida, Pago pago) {
         this.id = id;
         this.cliente = cliente;
         this.habitacion = habitacion;
