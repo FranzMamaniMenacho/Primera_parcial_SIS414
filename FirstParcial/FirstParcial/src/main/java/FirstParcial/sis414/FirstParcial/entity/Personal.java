@@ -1,6 +1,7 @@
 package FirstParcial.sis414.FirstParcial.entity;
 
 public class Personal {
+    private Long id;
     private String nombre;
     private String rol;
     private String idEmpleado;
@@ -10,8 +11,9 @@ public class Personal {
         this.rol = rol;
         this.idEmpleado = idEmpleado;
     }
+    public Long getId() {return id;}
+    public void setId(Long id) {this.id = id;}
 
-    // Getters y Setters
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
 

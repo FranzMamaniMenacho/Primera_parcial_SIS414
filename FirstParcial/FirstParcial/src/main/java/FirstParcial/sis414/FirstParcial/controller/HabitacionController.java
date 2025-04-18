@@ -49,6 +49,20 @@ public class HabitacionController {
         return habitacion;
     }
 
+//    @PostMapping
+//    public Habitacion addHabitacion(@RequestBody Habitacion habitacion) {
+//        logger.info("Agregando nueva habitación con tipo: {}", habitacion.getTipo().getDescripcion());
+//
+//        // Generar un nuevo ID único (solo si no se proporciona)
+//        long newId = habitaciones.stream().mapToLong(Habitacion::getId).max().orElse(0L) + 1;
+//        habitacion.setId(newId);
+//
+//        habitaciones.add(habitacion);
+//        logger.info("Nueva habitación agregada con ID: {}", habitacion.getId());
+//        return habitacion;
+//    }
+
+
     @PutMapping("/{id}")
     public Habitacion updateHabitacion(@PathVariable Long id, @RequestBody Habitacion habitacion) {
         logger.info("Actualizando habitación con ID: {}", id);
