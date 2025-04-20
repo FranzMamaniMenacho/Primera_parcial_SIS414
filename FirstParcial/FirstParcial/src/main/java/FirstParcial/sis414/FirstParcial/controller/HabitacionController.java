@@ -1,10 +1,9 @@
 package FirstParcial.sis414.FirstParcial.controller;
 
+import FirstParcial.sis414.FirstParcial.entity.Habitacion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
-import FirstParcial.sis414.FirstParcial.entity.Habitacion;
-import FirstParcial.sis414.FirstParcial.entity.TipoHabitacion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +14,6 @@ public class HabitacionController {
 
     private static final Logger logger = LoggerFactory.getLogger(HabitacionController.class);
     private List<Habitacion> habitaciones = new ArrayList<>();
-
-    public HabitacionController() {
-        TipoHabitacion tipo1 = new TipoHabitacion(1L, "Sencilla", 2, 50);
-        Habitacion habitacion = new Habitacion(1L, tipo1, true, 50);
-        habitaciones.add(habitacion);
-        logger.info("Inicializando el controlador con una habitación de ejemplo.");
-    }
 
     @GetMapping
     public List<Habitacion> getHabitaciones() {
@@ -44,28 +36,13 @@ public class HabitacionController {
 
     @PostMapping
     public Habitacion addHabitacion(@RequestBody Habitacion habitacion) {
-        logger.info("Agregando nueva habitación con ID: {}", habitacion.getId());
         habitaciones.add(habitacion);
+        logger.info("Se ha creado una nueva habitación con ID: {}", habitacion.getId());
         return habitacion;
     }
 
-//    @PostMapping
-//    public Habitacion addHabitacion(@RequestBody Habitacion habitacion) {
-//        logger.info("Agregando nueva habitación con tipo: {}", habitacion.getTipo().getDescripcion());
-//
-//        // Generar un nuevo ID único (solo si no se proporciona)
-//        long newId = habitaciones.stream().mapToLong(Habitacion::getId).max().orElse(0L) + 1;
-//        habitacion.setId(newId);
-//
-//        habitaciones.add(habitacion);
-//        logger.info("Nueva habitación agregada con ID: {}", habitacion.getId());
-//        return habitacion;
-//    }
-
-
     @PutMapping("/{id}")
     public Habitacion updateHabitacion(@PathVariable Long id, @RequestBody Habitacion habitacion) {
-        logger.info("Actualizando habitación con ID: {}", id);
         for (int i = 0; i < habitaciones.size(); i++) {
             if (habitaciones.get(i).getId().equals(id)) {
                 habitaciones.set(i, habitacion);
@@ -79,38 +56,37 @@ public class HabitacionController {
 
     @DeleteMapping("/{id}")
     public String deleteHabitacion(@PathVariable Long id) {
-        logger.info("Intentando eliminar habitación con ID: {}", id);
-        boolean removed = habitaciones.removeIf(h -> h.getId().equals(id));
+        boolean removed = habitaciones.removeIf(habitacion -> habitacion.getId().equals(id));
         if (removed) {
             logger.info("Habitación con ID {} eliminada con éxito.", id);
             return "Habitación eliminada con éxito.";
         } else {
-            logger.error("No se pudo eliminar la habitación con ID {}.", id);
-            return "No se encontró la habitación para eliminar.";
+            logger.error("No se pudo eliminar la habitación con ID {}. No encontrada.", id);
+            return "Habitación no encontrada.";
         }
     }
-    
+
     @PatchMapping("/{id}")
     public Habitacion patchHabitacion(@PathVariable Long id, @RequestBody Habitacion partialHabitacion) {
-        logger.info("Actualización parcial para habitación con ID: {}", id);
         for (Habitacion habitacion : habitaciones) {
             if (habitacion.getId().equals(id)) {
-                if (partialHabitacion.getTipo() != null) {
-                    habitacion.setTipo(partialHabitacion.getTipo());
-                    logger.info("Tipo de habitación actualizado.");
+                if (partialHabitacion.getTipoHabitacion() != null) {
+                    habitacion.setTipoHabitacion(partialHabitacion.getTipoHabitacion());
+                    logger.info("Tipo de habitación actualizado para ID: {}", id);
                 }
                 if (partialHabitacion.isDisponible() != habitacion.isDisponible()) {
                     habitacion.setDisponible(partialHabitacion.isDisponible());
-                    logger.info("Disponibilidad de la habitación actualizada.");
+                    logger.info("Disponibilidad de habitación actualizada para ID: {}", id);
                 }
                 if (partialHabitacion.getPrecioNoche() != 0) {
                     habitacion.setPrecioNoche(partialHabitacion.getPrecioNoche());
-                    logger.info("Precio por noche actualizado.");
+                    logger.info("Precio de habitación actualizado para ID: {}", id);
                 }
                 return habitacion;
             }
         }
-        logger.warn("No se encontró habitación con ID {} para actualización parcial.", id);
+        logger.warn("No se encontró habitación con ID {} para actualizar parcialmente.", id);
         return null;
     }
+
 }

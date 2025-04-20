@@ -149,6 +149,7 @@
 2025-04-18 13:26:24 - Inicializando el controlador con un tipo de habitación de ejemplo.
 2025-04-18 13:26:24 - Tomcat started on port 8080 (http) with context path '/'
 2025-04-18 13:26:24 - Started FirstParcialSis414Application in 2.097 seconds (process running for 2.417)
+<<<<<<< HEAD
 2025-04-18 14:42:29 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 13956 (C:\SIS414\FirstParcial\FirstParcial\build\classes\java\main started by admin in C:\SIS414\FirstParcial)
 2025-04-18 14:42:29 - No active profile set, falling back to 1 default profile: "default"
 2025-04-18 14:42:30 - Tomcat initialized with port 8080 (http)
@@ -368,3 +369,246 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2025-04-18 16:25:49 - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-04-18 16:25:49 - Initializing Servlet 'dispatcherServlet'
 2025-04-18 16:25:49 - Completed initialization in 0 ms
+=======
+2025-04-18 15:35:32 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 15664 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-18 15:35:32 - No active profile set, falling back to 1 default profile: "default"
+2025-04-18 15:35:40 - Tomcat initialized with port 8080 (http)
+2025-04-18 15:35:40 - Starting service [Tomcat]
+2025-04-18 15:35:40 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-18 15:35:40 - Initializing Spring embedded WebApplicationContext
+2025-04-18 15:35:40 - Root WebApplicationContext: initialization completed in 7010 ms
+2025-04-18 15:35:40 - Inicializando el controlador con una habitación de ejemplo.
+2025-04-18 15:35:40 - Inicializando el controlador con un tipo de habitación de ejemplo.
+2025-04-18 15:35:41 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-18 15:35:41 - Started FirstParcialSis414Application in 11.593 seconds (process running for 12.619)
+2025-04-18 15:36:13 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-18 15:36:13 - Initializing Servlet 'dispatcherServlet'
+2025-04-18 15:36:13 - Completed initialization in 10 ms
+2025-04-18 15:36:13 - Solicitando lista de habitaciones.
+2025-04-18 15:39:28 - Solicitando lista de habitaciones.
+2025-04-18 15:49:07 - Solicitando habitación con ID: 1
+2025-04-18 15:49:07 - Habitación encontrada: 1
+2025-04-18 15:49:42 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public FirstParcial.sis414.FirstParcial.entity.Cliente FirstParcial.sis414.FirstParcial.controller.ClienteController.addCliente(FirstParcial.sis414.FirstParcial.entity.Cliente)]
+2025-04-18 15:49:50 - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public FirstParcial.sis414.FirstParcial.entity.Cliente FirstParcial.sis414.FirstParcial.controller.ClienteController.addCliente(FirstParcial.sis414.FirstParcial.entity.Cliente)]
+2025-04-18 15:53:26 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 13288 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-18 15:53:26 - No active profile set, falling back to 1 default profile: "default"
+2025-04-18 15:53:27 - Tomcat initialized with port 8080 (http)
+2025-04-18 15:53:27 - Starting service [Tomcat]
+2025-04-18 15:53:27 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-18 15:53:27 - Initializing Spring embedded WebApplicationContext
+2025-04-18 15:53:27 - Root WebApplicationContext: initialization completed in 1081 ms
+2025-04-18 15:53:27 - Inicializando el controlador con una habitación de ejemplo.
+2025-04-18 15:53:27 - Inicializando el controlador con un tipo de habitación de ejemplo.
+2025-04-18 15:53:27 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-18 15:53:28 - Started FirstParcialSis414Application in 2.232 seconds (process running for 2.752)
+2025-04-18 15:53:33 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-18 15:53:33 - Initializing Servlet 'dispatcherServlet'
+2025-04-18 15:53:33 - Completed initialization in 15 ms
+2025-04-18 15:54:30 - Solicitando lista de habitaciones.
+2025-04-18 15:57:30 - Agregando nueva habitación con ID: 2
+2025-04-18 15:57:38 - Agregando nueva habitación con ID: 2
+2025-04-18 16:06:22 - Agregando nueva habitación con ID: 2
+2025-04-18 16:06:27 - Solicitando lista de habitaciones.
+2025-04-18 16:06:44 - Solicitando habitación con ID: 1
+2025-04-18 16:06:44 - Habitación encontrada: 1
+2025-04-18 16:06:52 - Intentando eliminar habitación con ID: 1
+2025-04-18 16:06:52 - Habitación con ID 1 eliminada con éxito.
+2025-04-18 16:08:13 - Solicitando lista de habitaciones.
+2025-04-18 16:08:17 - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+2025-04-18 16:10:03 - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+2025-04-18 16:10:09 - Actualizando habitación con ID: 2
+2025-04-18 16:10:09 - Habitación con ID 2 actualizada.
+2025-04-18 16:10:30 - Solicitando lista de habitaciones.
+2025-04-18 16:11:59 - Solicitando habitación con ID: 2
+2025-04-18 16:11:59 - Habitación encontrada: 2
+2025-04-18 16:14:19 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 1464 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-18 16:14:19 - No active profile set, falling back to 1 default profile: "default"
+2025-04-18 16:14:20 - Tomcat initialized with port 8080 (http)
+2025-04-18 16:14:20 - Starting service [Tomcat]
+2025-04-18 16:14:20 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-18 16:14:20 - Initializing Spring embedded WebApplicationContext
+2025-04-18 16:14:20 - Root WebApplicationContext: initialization completed in 1469 ms
+2025-04-18 16:14:21 - Inicializando el controlador con una habitación de ejemplo.
+2025-04-18 16:14:21 - Inicializando el controlador con un tipo de habitación de ejemplo.
+2025-04-18 16:14:21 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-18 16:14:21 - Started FirstParcialSis414Application in 2.815 seconds (process running for 3.156)
+2025-04-18 16:14:26 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-18 16:14:26 - Initializing Servlet 'dispatcherServlet'
+2025-04-18 16:14:26 - Completed initialization in 1 ms
+2025-04-18 16:14:26 - Solicitando lista de habitaciones.
+2025-04-18 16:15:01 - Agregando nueva habitación con ID: 2
+2025-04-18 16:15:09 - Solicitando lista de habitaciones.
+2025-04-18 16:15:30 - Solicitando habitación con ID: 2
+2025-04-18 16:15:30 - Habitación encontrada: 2
+2025-04-18 16:16:08 - Actualizando habitación con ID: 2
+2025-04-18 16:16:08 - Habitación con ID 2 actualizada.
+2025-04-18 16:16:15 - Solicitando lista de habitaciones.
+2025-04-18 16:16:25 - Intentando eliminar habitación con ID: 2
+2025-04-18 16:16:25 - Habitación con ID 2 eliminada con éxito.
+2025-04-18 16:16:33 - Solicitando lista de habitaciones.
+2025-04-18 16:16:43 - Intentando eliminar habitación con ID: 54
+2025-04-18 16:16:43 - No se pudo eliminar la habitación con ID 54.
+2025-04-18 16:18:06 - Solicitando habitación con ID: 2
+2025-04-18 16:18:06 - Habitación con ID 2 no encontrada.
+2025-04-18 16:18:16 - Solicitando habitación con ID: 1
+2025-04-18 16:18:16 - Habitación encontrada: 1
+2025-04-18 16:18:54 - Solicitando habitación con ID: 1
+2025-04-18 16:18:54 - Habitación encontrada: 1
+2025-04-18 16:18:59 - Solicitando lista de habitaciones.
+2025-04-18 16:19:39 - Solicitando habitación con ID: 78
+2025-04-18 16:19:39 - Habitación con ID 78 no encontrada.
+2025-04-18 16:22:47 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 15700 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-18 16:22:47 - No active profile set, falling back to 1 default profile: "default"
+2025-04-18 16:22:48 - Tomcat initialized with port 8080 (http)
+2025-04-18 16:22:48 - Starting service [Tomcat]
+2025-04-18 16:22:48 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-18 16:22:48 - Initializing Spring embedded WebApplicationContext
+2025-04-18 16:22:48 - Root WebApplicationContext: initialization completed in 1210 ms
+2025-04-18 16:22:48 - Inicializando el controlador con una habitación de ejemplo.
+2025-04-18 16:22:48 - Inicializando el controlador con un tipo de habitación de ejemplo.
+2025-04-18 16:22:48 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-18 16:22:48 - Started FirstParcialSis414Application in 2.277 seconds (process running for 2.586)
+2025-04-18 16:23:46 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-18 16:23:46 - Initializing Servlet 'dispatcherServlet'
+2025-04-18 16:23:46 - Completed initialization in 0 ms
+2025-04-18 16:23:46 - Solicitando lista de habitaciones.
+2025-04-18 16:24:07 - Solicitando habitación con ID: 2
+2025-04-18 16:24:07 - Habitación con ID 2 no encontrada.
+2025-04-18 16:24:37 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 14428 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-18 16:24:37 - No active profile set, falling back to 1 default profile: "default"
+2025-04-18 16:24:38 - Tomcat initialized with port 8080 (http)
+2025-04-18 16:24:38 - Starting service [Tomcat]
+2025-04-18 16:24:38 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-18 16:24:38 - Initializing Spring embedded WebApplicationContext
+2025-04-18 16:24:38 - Root WebApplicationContext: initialization completed in 1530 ms
+2025-04-18 16:24:38 - Inicializando el controlador con una habitación de ejemplo.
+2025-04-18 16:24:38 - Inicializando el controlador con un tipo de habitación de ejemplo.
+2025-04-18 16:24:39 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-18 16:24:39 - Started FirstParcialSis414Application in 2.634 seconds (process running for 3.055)
+2025-04-18 16:24:40 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-18 16:24:40 - Initializing Servlet 'dispatcherServlet'
+2025-04-18 16:24:40 - Completed initialization in 0 ms
+2025-04-18 16:24:40 - Solicitando lista de habitaciones.
+2025-04-18 16:24:46 - Solicitando habitación con ID: 2
+2025-04-18 16:24:46 - Habitación con ID 2 no encontrada.
+2025-04-18 16:25:00 - Solicitando habitación con ID: 50
+2025-04-18 16:25:00 - Habitación con ID 50 no encontrada.
+2025-04-18 16:25:43 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 7520 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-18 16:25:43 - No active profile set, falling back to 1 default profile: "default"
+2025-04-18 16:25:45 - Tomcat initialized with port 8080 (http)
+2025-04-18 16:25:45 - Starting service [Tomcat]
+2025-04-18 16:25:45 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-18 16:25:45 - Initializing Spring embedded WebApplicationContext
+2025-04-18 16:25:45 - Root WebApplicationContext: initialization completed in 1232 ms
+2025-04-18 16:25:45 - Inicializando el controlador con una habitación de ejemplo.
+2025-04-18 16:25:45 - Inicializando el controlador con un tipo de habitación de ejemplo.
+2025-04-18 16:25:45 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-18 16:25:45 - Started FirstParcialSis414Application in 2.45 seconds (process running for 2.791)
+2025-04-18 16:25:48 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-18 16:25:48 - Initializing Servlet 'dispatcherServlet'
+2025-04-18 16:25:48 - Completed initialization in 0 ms
+2025-04-18 16:25:48 - Solicitando lista de habitaciones.
+2025-04-18 16:26:10 - Solicitando habitación con ID: 1
+2025-04-18 16:26:10 - Habitación encontrada: 1
+2025-04-18 16:26:25 - Agregando nueva habitación con ID: 2
+2025-04-18 16:26:30 - Solicitando lista de habitaciones.
+2025-04-18 16:26:38 - Solicitando habitación con ID: 2
+2025-04-18 16:26:38 - Habitación encontrada: 2
+2025-04-18 16:26:57 - Actualizando habitación con ID: 2
+2025-04-18 16:26:57 - Habitación con ID 2 actualizada.
+2025-04-18 16:27:01 - Solicitando lista de habitaciones.
+2025-04-18 16:27:15 - Intentando eliminar habitación con ID: 2
+2025-04-18 16:27:15 - Habitación con ID 2 eliminada con éxito.
+2025-04-18 16:27:23 - Intentando eliminar habitación con ID: 20
+2025-04-18 16:27:23 - No se pudo eliminar la habitación con ID 20.
+2025-04-18 16:30:08 - Solicitando habitación con ID: 1
+2025-04-18 16:30:08 - Habitación encontrada: 1
+2025-04-18 16:31:33 - Solicitando habitación con ID: 1
+2025-04-18 16:31:33 - Habitación encontrada: 1
+2025-04-18 16:31:45 - Solicitando lista de habitaciones.
+2025-04-18 20:15:19 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 16444 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-18 20:15:19 - No active profile set, falling back to 1 default profile: "default"
+2025-04-18 20:15:20 - Tomcat initialized with port 8080 (http)
+2025-04-18 20:15:20 - Starting service [Tomcat]
+2025-04-18 20:15:20 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-18 20:15:20 - Initializing Spring embedded WebApplicationContext
+2025-04-18 20:15:20 - Root WebApplicationContext: initialization completed in 1053 ms
+2025-04-18 20:15:20 - Inicializando el controlador con una habitación de ejemplo.
+2025-04-18 20:15:20 - Inicializando el controlador con un tipo de habitación de ejemplo.
+2025-04-18 20:15:21 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-18 20:15:21 - Started FirstParcialSis414Application in 2.073 seconds (process running for 2.407)
+2025-04-18 20:15:55 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-18 20:15:55 - Initializing Servlet 'dispatcherServlet'
+2025-04-18 20:15:55 - Completed initialization in 1 ms
+2025-04-18 20:15:55 - Solicitando lista de habitaciones.
+2025-04-18 20:17:32 - Solicitando habitación con ID: 2
+2025-04-18 20:17:32 - Habitación con ID 2 no encontrada.
+2025-04-18 20:17:52 - Solicitando habitación con ID: 2
+2025-04-18 20:17:52 - Habitación con ID 2 no encontrada.
+2025-04-18 20:17:58 - Solicitando habitación con ID: 1
+2025-04-18 20:17:58 - Habitación encontrada: 1
+2025-04-18 20:20:47 - Agregando nueva habitación con ID: 2
+2025-04-18 20:24:39 - Actualizando habitación con ID: 2
+2025-04-18 20:24:39 - Habitación con ID 2 actualizada.
+2025-04-18 20:26:01 - Actualizando habitación con ID: 2
+2025-04-18 20:26:01 - Habitación con ID 2 actualizada.
+2025-04-18 20:26:23 - Actualizando habitación con ID: 2
+2025-04-18 20:26:23 - Habitación con ID 2 actualizada.
+2025-04-18 20:27:02 - Solicitando habitación con ID: 1
+2025-04-18 20:27:02 - Habitación encontrada: 1
+2025-04-18 20:27:22 - Solicitando lista de habitaciones.
+2025-04-18 20:27:37 - Solicitando habitación con ID: 1
+2025-04-18 20:27:37 - Habitación encontrada: 1
+2025-04-18 20:27:46 - Solicitando lista de habitaciones.
+2025-04-18 20:27:54 - Solicitando lista de habitaciones.
+2025-04-18 20:27:59 - Solicitando habitación con ID: 1
+2025-04-18 20:27:59 - Habitación encontrada: 1
+2025-04-18 20:28:12 - Solicitando lista de habitaciones.
+2025-04-18 20:28:27 - Solicitando habitación con ID: 2
+2025-04-18 20:28:27 - Habitación encontrada: 2
+2025-04-18 20:28:36 - Solicitando habitación con ID: 2
+2025-04-18 20:28:36 - Habitación encontrada: 2
+2025-04-18 20:28:45 - Solicitando lista de habitaciones.
+2025-04-18 20:29:00 - Solicitando habitación con ID: 2
+2025-04-18 20:29:00 - Habitación encontrada: 2
+2025-04-18 20:29:02 - Solicitando habitación con ID: 2
+2025-04-18 20:29:02 - Habitación encontrada: 2
+2025-04-18 20:29:03 - Solicitando habitación con ID: 2
+2025-04-18 20:29:03 - Habitación encontrada: 2
+2025-04-18 20:29:04 - Solicitando habitación con ID: 2
+2025-04-18 20:29:04 - Habitación encontrada: 2
+2025-04-18 20:29:06 - Solicitando habitación con ID: 2
+2025-04-18 20:29:06 - Habitación encontrada: 2
+2025-04-18 20:29:18 - Actualización parcial para habitación con ID: 2
+2025-04-18 20:29:18 - Precio por noche actualizado.
+2025-04-18 20:29:29 - Intentando eliminar habitación con ID: 2
+2025-04-18 20:29:29 - Habitación con ID 2 eliminada con éxito.
+2025-04-18 20:32:13 - Solicitando lista de tipos de habitaciones.
+2025-04-18 23:03:51 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 5228 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-18 23:03:51 - No active profile set, falling back to 1 default profile: "default"
+2025-04-18 23:03:52 - Tomcat initialized with port 8080 (http)
+2025-04-18 23:03:52 - Starting service [Tomcat]
+2025-04-18 23:03:52 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-18 23:03:52 - Initializing Spring embedded WebApplicationContext
+2025-04-18 23:03:52 - Root WebApplicationContext: initialization completed in 1114 ms
+2025-04-18 23:03:52 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-18 23:03:52 - Started FirstParcialSis414Application in 2.178 seconds (process running for 2.487)
+2025-04-18 23:12:23 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 13192 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-18 23:12:23 - No active profile set, falling back to 1 default profile: "default"
+2025-04-18 23:12:24 - Tomcat initialized with port 8080 (http)
+2025-04-18 23:12:24 - Starting service [Tomcat]
+2025-04-18 23:12:24 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-18 23:12:24 - Initializing Spring embedded WebApplicationContext
+2025-04-18 23:12:24 - Root WebApplicationContext: initialization completed in 1083 ms
+2025-04-18 23:12:25 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-18 23:12:25 - Started FirstParcialSis414Application in 2.339 seconds (process running for 2.757)
+2025-04-18 23:16:39 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 14484 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-18 23:16:39 - No active profile set, falling back to 1 default profile: "default"
+2025-04-18 23:16:40 - Tomcat initialized with port 8080 (http)
+2025-04-18 23:16:40 - Starting service [Tomcat]
+2025-04-18 23:16:40 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-18 23:16:40 - Initializing Spring embedded WebApplicationContext
+2025-04-18 23:16:40 - Root WebApplicationContext: initialization completed in 1123 ms
+2025-04-18 23:16:40 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-18 23:16:40 - Started FirstParcialSis414Application in 2.328 seconds (process running for 2.654)
+>>>>>>> 9798dd49c0de567571a57299ac5e2f6b7a17c99f
