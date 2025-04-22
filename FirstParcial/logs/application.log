@@ -149,227 +149,6 @@
 2025-04-18 13:26:24 - Inicializando el controlador con un tipo de habitación de ejemplo.
 2025-04-18 13:26:24 - Tomcat started on port 8080 (http) with context path '/'
 2025-04-18 13:26:24 - Started FirstParcialSis414Application in 2.097 seconds (process running for 2.417)
-<<<<<<< HEAD
-2025-04-18 14:42:29 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 13956 (C:\SIS414\FirstParcial\FirstParcial\build\classes\java\main started by admin in C:\SIS414\FirstParcial)
-2025-04-18 14:42:29 - No active profile set, falling back to 1 default profile: "default"
-2025-04-18 14:42:30 - Tomcat initialized with port 8080 (http)
-2025-04-18 14:42:30 - Starting service [Tomcat]
-2025-04-18 14:42:30 - Starting Servlet engine: [Apache Tomcat/10.1.39]
-2025-04-18 14:42:30 - Initializing Spring embedded WebApplicationContext
-2025-04-18 14:42:30 - Root WebApplicationContext: initialization completed in 1077 ms
-2025-04-18 14:42:31 - Inicializando el controlador con una habitación de ejemplo.
-2025-04-18 14:42:31 - Inicializando el controlador con un tipo de habitación de ejemplo.
-2025-04-18 14:42:31 - Tomcat started on port 8080 (http) with context path '/'
-2025-04-18 14:42:31 - Started FirstParcialSis414Application in 2.292 seconds (process running for 2.722)
-2025-04-18 14:44:02 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-04-18 14:44:02 - Initializing Servlet 'dispatcherServlet'
-2025-04-18 14:44:02 - Completed initialization in 1 ms
-2025-04-18 14:45:06 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 9460 (C:\SIS414\FirstParcial\FirstParcial\build\classes\java\main started by admin in C:\SIS414\FirstParcial)
-2025-04-18 14:45:06 - No active profile set, falling back to 1 default profile: "default"
-2025-04-18 14:45:07 - Tomcat initialized with port 8080 (http)
-2025-04-18 14:45:07 - Starting service [Tomcat]
-2025-04-18 14:45:07 - Starting Servlet engine: [Apache Tomcat/10.1.39]
-2025-04-18 14:45:07 - Initializing Spring embedded WebApplicationContext
-2025-04-18 14:45:07 - Root WebApplicationContext: initialization completed in 1008 ms
-2025-04-18 14:45:08 - Inicializando el controlador con una habitación de ejemplo.
-2025-04-18 14:45:08 - Inicializando el controlador con un tipo de habitación de ejemplo.
-2025-04-18 14:45:08 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2025-04-18 14:45:08 - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-04-18 14:45:08 - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
-2025-04-18 14:45:22 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 6528 (C:\SIS414\FirstParcial\FirstParcial\build\classes\java\main started by admin in C:\SIS414\FirstParcial)
-2025-04-18 14:45:22 - No active profile set, falling back to 1 default profile: "default"
-2025-04-18 14:45:23 - Tomcat initialized with port 8080 (http)
-2025-04-18 14:45:23 - Starting service [Tomcat]
-2025-04-18 14:45:23 - Starting Servlet engine: [Apache Tomcat/10.1.39]
-2025-04-18 14:45:23 - Initializing Spring embedded WebApplicationContext
-2025-04-18 14:45:23 - Root WebApplicationContext: initialization completed in 960 ms
-2025-04-18 14:45:23 - Inicializando el controlador con una habitación de ejemplo.
-2025-04-18 14:45:23 - Inicializando el controlador con un tipo de habitación de ejemplo.
-2025-04-18 14:45:24 - Tomcat started on port 8080 (http) with context path '/'
-2025-04-18 14:45:24 - Started FirstParcialSis414Application in 1.962 seconds (process running for 2.367)
-2025-04-18 14:47:05 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-04-18 14:47:05 - Initializing Servlet 'dispatcherServlet'
-2025-04-18 14:47:05 - Completed initialization in 1 ms
-2025-04-18 15:39:32 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 6892 (C:\SIS414\FirstParcial\FirstParcial\build\classes\java\main started by admin in C:\SIS414\FirstParcial)
-2025-04-18 15:39:32 - No active profile set, falling back to 1 default profile: "default"
-2025-04-18 15:39:33 - Tomcat initialized with port 8080 (http)
-2025-04-18 15:39:33 - Starting service [Tomcat]
-2025-04-18 15:39:33 - Starting Servlet engine: [Apache Tomcat/10.1.39]
-2025-04-18 15:39:33 - Initializing Spring embedded WebApplicationContext
-2025-04-18 15:39:33 - Root WebApplicationContext: initialization completed in 1076 ms
-2025-04-18 15:39:33 - Inicializando el controlador con una habitación de ejemplo.
-2025-04-18 15:39:33 - Inicializando el controlador con un tipo de habitación de ejemplo.
-2025-04-18 15:39:34 - Tomcat started on port 8080 (http) with context path '/'
-2025-04-18 15:39:34 - Started FirstParcialSis414Application in 2.253 seconds (process running for 2.617)
-2025-04-18 15:39:39 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-04-18 15:39:39 - Initializing Servlet 'dispatcherServlet'
-2025-04-18 15:39:39 - Completed initialization in 0 ms
-2025-04-18 15:39:59 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 12320 (C:\SIS414\FirstParcial\FirstParcial\build\classes\java\main started by admin in C:\SIS414\FirstParcial)
-2025-04-18 15:39:59 - No active profile set, falling back to 1 default profile: "default"
-2025-04-18 15:40:01 - Tomcat initialized with port 8080 (http)
-2025-04-18 15:40:01 - Starting service [Tomcat]
-2025-04-18 15:40:01 - Starting Servlet engine: [Apache Tomcat/10.1.39]
-2025-04-18 15:40:01 - Initializing Spring embedded WebApplicationContext
-2025-04-18 15:40:01 - Root WebApplicationContext: initialization completed in 1466 ms
-2025-04-18 15:40:01 - Inicializando el controlador con una habitación de ejemplo.
-2025-04-18 15:40:01 - Inicializando el controlador con un tipo de habitación de ejemplo.
-2025-04-18 15:40:01 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2025-04-18 15:40:01 - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-04-18 15:40:01 - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
-2025-04-18 15:40:10 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 9388 (C:\SIS414\FirstParcial\FirstParcial\build\classes\java\main started by admin in C:\SIS414\FirstParcial)
-2025-04-18 15:40:10 - No active profile set, falling back to 1 default profile: "default"
-2025-04-18 15:40:11 - Tomcat initialized with port 8080 (http)
-2025-04-18 15:40:11 - Starting service [Tomcat]
-2025-04-18 15:40:11 - Starting Servlet engine: [Apache Tomcat/10.1.39]
-2025-04-18 15:40:11 - Initializing Spring embedded WebApplicationContext
-2025-04-18 15:40:11 - Root WebApplicationContext: initialization completed in 979 ms
-2025-04-18 15:40:11 - Inicializando el controlador con una habitación de ejemplo.
-2025-04-18 15:40:11 - Inicializando el controlador con un tipo de habitación de ejemplo.
-2025-04-18 15:40:12 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2025-04-18 15:40:12 - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-04-18 15:40:12 - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
-2025-04-18 15:40:59 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 12848 (C:\SIS414\FirstParcial\FirstParcial\build\classes\java\main started by admin in C:\SIS414\FirstParcial)
-2025-04-18 15:40:59 - No active profile set, falling back to 1 default profile: "default"
-2025-04-18 15:41:00 - Tomcat initialized with port 8080 (http)
-2025-04-18 15:41:00 - Starting service [Tomcat]
-2025-04-18 15:41:00 - Starting Servlet engine: [Apache Tomcat/10.1.39]
-2025-04-18 15:41:00 - Initializing Spring embedded WebApplicationContext
-2025-04-18 15:41:00 - Root WebApplicationContext: initialization completed in 976 ms
-2025-04-18 15:41:01 - Inicializando el controlador con una habitación de ejemplo.
-2025-04-18 15:41:01 - Inicializando el controlador con un tipo de habitación de ejemplo.
-2025-04-18 15:41:01 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2025-04-18 15:41:01 - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-04-18 15:41:01 - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
-2025-04-18 15:42:03 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 13720 (C:\SIS414\FirstParcial\FirstParcial\build\classes\java\main started by admin in C:\SIS414\FirstParcial)
-2025-04-18 15:42:03 - No active profile set, falling back to 1 default profile: "default"
-2025-04-18 15:42:04 - Tomcat initialized with port 8080 (http)
-2025-04-18 15:42:04 - Starting service [Tomcat]
-2025-04-18 15:42:04 - Starting Servlet engine: [Apache Tomcat/10.1.39]
-2025-04-18 15:42:04 - Initializing Spring embedded WebApplicationContext
-2025-04-18 15:42:04 - Root WebApplicationContext: initialization completed in 1088 ms
-2025-04-18 15:42:04 - Inicializando el controlador con una habitación de ejemplo.
-2025-04-18 15:42:04 - Inicializando el controlador con un tipo de habitación de ejemplo.
-2025-04-18 15:42:04 - Tomcat started on port 8080 (http) with context path '/'
-2025-04-18 15:42:04 - Started FirstParcialSis414Application in 2.118 seconds (process running for 2.453)
-2025-04-18 15:42:16 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-04-18 15:42:16 - Initializing Servlet 'dispatcherServlet'
-2025-04-18 15:42:16 - Completed initialization in 1 ms
-2025-04-18 15:51:54 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 12168 (C:\SIS414\FirstParcial\FirstParcial\build\classes\java\main started by admin in C:\SIS414\FirstParcial)
-2025-04-18 15:51:54 - No active profile set, falling back to 1 default profile: "default"
-2025-04-18 15:51:55 - Tomcat initialized with port 8080 (http)
-2025-04-18 15:51:55 - Starting service [Tomcat]
-2025-04-18 15:51:55 - Starting Servlet engine: [Apache Tomcat/10.1.39]
-2025-04-18 15:51:55 - Initializing Spring embedded WebApplicationContext
-2025-04-18 15:51:55 - Root WebApplicationContext: initialization completed in 1379 ms
-2025-04-18 15:51:55 - Inicializando el controlador con una habitación de ejemplo.
-2025-04-18 15:51:55 - Inicializando el controlador con un tipo de habitación de ejemplo.
-2025-04-18 15:51:56 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2025-04-18 15:51:56 - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-04-18 15:51:56 - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
-2025-04-18 15:56:15 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 13968 (C:\SIS414\FirstParcial\FirstParcial\build\classes\java\main started by admin in C:\SIS414\FirstParcial)
-2025-04-18 15:56:15 - No active profile set, falling back to 1 default profile: "default"
-2025-04-18 15:56:16 - Tomcat initialized with port 8080 (http)
-2025-04-18 15:56:16 - Starting service [Tomcat]
-2025-04-18 15:56:16 - Starting Servlet engine: [Apache Tomcat/10.1.39]
-2025-04-18 15:56:16 - Initializing Spring embedded WebApplicationContext
-2025-04-18 15:56:16 - Root WebApplicationContext: initialization completed in 946 ms
-2025-04-18 15:56:16 - Inicializando el controlador con una habitación de ejemplo.
-2025-04-18 15:56:16 - Inicializando el controlador con un tipo de habitación de ejemplo.
-2025-04-18 15:56:17 - Tomcat started on port 8080 (http) with context path '/'
-2025-04-18 15:56:17 - Started FirstParcialSis414Application in 2.109 seconds (process running for 2.417)
-2025-04-18 15:56:27 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-04-18 15:56:27 - Initializing Servlet 'dispatcherServlet'
-2025-04-18 15:56:27 - Completed initialization in 0 ms
-2025-04-18 16:21:05 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 3940 (C:\SIS414\FirstParcial\FirstParcial\build\classes\java\main started by admin in C:\SIS414\FirstParcial)
-2025-04-18 16:21:05 - No active profile set, falling back to 1 default profile: "default"
-2025-04-18 16:21:06 - Tomcat initialized with port 8080 (http)
-2025-04-18 16:21:06 - Starting service [Tomcat]
-2025-04-18 16:21:06 - Starting Servlet engine: [Apache Tomcat/10.1.39]
-2025-04-18 16:21:06 - Initializing Spring embedded WebApplicationContext
-2025-04-18 16:21:06 - Root WebApplicationContext: initialization completed in 983 ms
-2025-04-18 16:21:06 - Inicializando el controlador con una habitación de ejemplo.
-2025-04-18 16:21:06 - Inicializando el controlador con un tipo de habitación de ejemplo.
-2025-04-18 16:21:06 - Tomcat started on port 8080 (http) with context path '/'
-2025-04-18 16:21:06 - Started FirstParcialSis414Application in 2.016 seconds (process running for 2.33)
-2025-04-18 16:25:49 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-04-18 16:25:49 - Initializing Servlet 'dispatcherServlet'
-2025-04-18 16:25:49 - Completed initialization in 0 ms
-=======
 2025-04-18 15:35:32 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 15664 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
 2025-04-18 15:35:32 - No active profile set, falling back to 1 default profile: "default"
 2025-04-18 15:35:40 - Tomcat initialized with port 8080 (http)
@@ -611,4 +390,59 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2025-04-18 23:16:40 - Root WebApplicationContext: initialization completed in 1123 ms
 2025-04-18 23:16:40 - Tomcat started on port 8080 (http) with context path '/'
 2025-04-18 23:16:40 - Started FirstParcialSis414Application in 2.328 seconds (process running for 2.654)
->>>>>>> 9798dd49c0de567571a57299ac5e2f6b7a17c99f
+2025-04-18 23:24:58 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 17112 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-18 23:24:58 - No active profile set, falling back to 1 default profile: "default"
+2025-04-18 23:24:59 - Tomcat initialized with port 8080 (http)
+2025-04-18 23:24:59 - Starting service [Tomcat]
+2025-04-18 23:24:59 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-18 23:24:59 - Initializing Spring embedded WebApplicationContext
+2025-04-18 23:24:59 - Root WebApplicationContext: initialization completed in 1122 ms
+2025-04-18 23:25:00 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-18 23:25:00 - Started FirstParcialSis414Application in 2.293 seconds (process running for 2.723)
+2025-04-18 23:30:06 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-18 23:30:06 - Initializing Servlet 'dispatcherServlet'
+2025-04-18 23:30:06 - Completed initialization in 0 ms
+2025-04-18 23:30:21 - Solicitando lista de habitaciones.
+2025-04-18 23:31:24 - Solicitando habitación con ID: 1
+2025-04-18 23:31:24 - Habitación con ID 1 no encontrada.
+2025-04-18 23:33:12 - Solicitando lista de habitaciones.
+2025-04-18 23:33:29 - Se ha creado una nueva habitación con ID: 1
+2025-04-18 23:33:37 - Solicitando lista de habitaciones.
+2025-04-18 23:33:43 - Solicitando habitación con ID: 1
+2025-04-18 23:33:43 - Habitación encontrada: 1
+2025-04-18 23:33:48 - Solicitando habitación con ID: 2
+2025-04-18 23:33:48 - Habitación con ID 2 no encontrada.
+2025-04-18 23:33:56 - Solicitando habitación con ID: 1
+2025-04-18 23:33:56 - Habitación encontrada: 1
+2025-04-18 23:34:48 - Solicitando habitación con ID: 1
+2025-04-18 23:34:48 - Habitación encontrada: 1
+2025-04-18 23:34:54 - Habitación con ID 1 eliminada con éxito.
+2025-04-18 23:35:00 - No se pudo eliminar la habitación con ID 23. No encontrada.
+2025-04-18 23:36:09 - No se encontró habitación con ID 1 para actualizar.
+2025-04-18 23:36:26 - Se ha creado una nueva habitación con ID: 1
+2025-04-18 23:36:31 - Habitación con ID 1 actualizada.
+2025-04-18 23:36:37 - Solicitando lista de habitaciones.
+2025-04-18 23:37:36 - Solicitando habitación con ID: 1
+2025-04-18 23:37:36 - Habitación encontrada: 1
+2025-04-18 23:37:46 - Precio de habitación actualizado para ID: 1
+2025-04-18 23:37:50 - Solicitando lista de habitaciones.
+2025-04-18 23:40:46 - Solicitando lista de parqueos.
+2025-04-18 23:44:05 - Solicitando lista de parqueos.
+2025-04-18 23:44:16 - Nuevo parqueo creado con ID: 3
+2025-04-18 23:44:20 - Solicitando lista de parqueos.
+2025-04-18 23:44:29 - Nuevo parqueo creado con ID: 1
+2025-04-18 23:44:37 - Solicitando lista de parqueos.
+2025-04-18 23:45:33 - Intentando eliminar parqueo con ID: 3
+2025-04-18 23:45:33 - Parqueo con ID 3 eliminado con éxito.
+2025-04-18 23:45:41 - Solicitando lista de parqueos.
+2025-04-18 23:48:22 - Actualizando parqueo con ID: 1
+2025-04-18 23:48:22 - Parqueo con ID 1 actualizado.
+2025-04-18 23:49:34 - Actualizando parcialmente parqueo con ID: 1
+2025-04-18 23:49:34 - No se encontró parqueo con ID 1 para actualización parcial.
+2025-04-18 23:49:49 - Solicitando lista de parqueos.
+2025-04-18 23:49:56 - Actualizando parcialmente parqueo con ID: 2
+2025-04-18 23:49:56 - Precio por noche actualizado para parqueo con ID: 2
+2025-04-18 23:49:56 - Disponibilidad actualizada para parqueo con ID: 2
+2025-04-18 23:50:08 - Actualizando parcialmente parqueo con ID: 2
+2025-04-18 23:50:08 - Precio por noche actualizado para parqueo con ID: 2
+2025-04-18 23:50:08 - Disponibilidad actualizada para parqueo con ID: 2

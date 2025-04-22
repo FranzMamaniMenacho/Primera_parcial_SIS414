@@ -1,7 +1,6 @@
 package FirstParcial.sis414.FirstParcial.entity;
 
 public class Habitacion {
-
     private Long id;
     private String tipoHabitacion;
     private boolean disponible;
@@ -14,6 +13,7 @@ public class Habitacion {
         this.precioNoche = precioNoche;
     }
 
+
     public Long getId() {
         return id;
     }
@@ -21,6 +21,7 @@ public class Habitacion {
     public void setId(Long id) {
         this.id = id;
     }
+
 
     public String getTipoHabitacion() {
         return tipoHabitacion;

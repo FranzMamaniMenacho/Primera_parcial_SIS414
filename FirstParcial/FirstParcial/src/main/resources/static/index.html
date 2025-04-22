@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Hostal</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<div class="container">
+    <div class="welcome-section">
+        <h1>Hostal los Mimidos</h1>
+        <p>Gestión y control del Hostal.</p>
+    </div>
+
+    <div class="text-center">
+        <button class="cyber-button" onclick="showModal('habitaciones')">Gestionar Habitaciones</button>
+        <button class="cyber-button" onclick="showModal('clientes')">Gestionar Clientes</button>
+        <button class="cyber-button" onclick="showModal('pagos')">Gestionar Pagos</button>
+        <button class="cyber-button" onclick="showModal('parqueo')">Gestionar Parqueo</button>
+        <button class="cyber-button" onclick="showModal('reserva')">Gestionar Reserva</button>
+        <button class="cyber-button" onclick="showModal('personal')">Gestionar Personal</button>
+    </div>
+</div>
+
+<div id="modal-habitaciones" class="modal hidden">
+    <div class="modal-content">
+        <h2 class="modal-title">Operaciones para Habitaciones</h2>
+        <div class="operations-buttons">
+            <button onclick="performAction('GET', '/habitaciones')">Ver Todos (GET)</button>
+            <label for="habitacionId"></label>
+            <input type="text" id="habitacionId" placeholder="Ingrese ID">
+            <button onclick="performAction('GET', '/habitaciones/{id}')">Ver por ID (GET)</button>
+
+            <div>
+                <label for="habitacionID">ID de la Habitación (Si se quiere ingresar manualmente):</label>
+                <input type="text" id="habitacionID" placeholder="Ingrese ID">
+                <label for="tipoHabitacion">Tipo de Habitación:</label>
+                <input type="text" id="tipoHabitacion" placeholder="Ejemplo: Sencilla, Doble">
+                <label for="disponible">Disponible:</label>
+                <input type="checkbox" id="disponible"> Sí
+                <label for="precioNoche">Precio por Noche:</label>
+                <input type="number" id="precioNoche" placeholder="Precio">
+                <button onclick="performAction('POST', '/habitaciones')">Agregar (POST)</button>
+            </div>
+
+            <!-- Actualización de habitación (PUT y PATCH) -->
+            <label for="habitacionIDPut">ID para Actualizar (PUT):</label>
+            <input type="text" id="habitacionIDPut" placeholder="Ingrese ID">
+            <label for="tipoHabitacionPut">Nuevo Tipo de Habitación (PUT):</label>
+            <input type="text" id="tipoHabitacionPut" placeholder="Nuevo tipo de habitación">
+            <label for="precioNochePut">Nuevo Precio por Noche (PUT):</label>
+            <input type="number" id="precioNochePut" placeholder="Nuevo precio">
+            <button onclick="performAction('PUT', '/habitaciones/{id}')">Actualizar Completo (PUT)</button>
+
+            <!-- Actualización Parcial (PATCH) -->
+            <label for="tipoHabitacionPatch">Nuevo Tipo de Habitación (PATCH):</label>
+            <input type="text" id="tipoHabitacionPatch" placeholder="Nuevo tipo de habitación">
+            <label for="precioNochePatch">Nuevo Precio por Noche (PATCH):</label>
+            <input type="number" id="precioNochePatch" placeholder="Nuevo precio">
+            <button onclick="performAction('PATCH', '/habitaciones/{id}')">Actualizar Parcial (PATCH)</button>
+
+            <label for="habitacionIDDelete">ID para Eliminar:</label>
+            <input type="text" id="habitacionIDDelete" placeholder="Ingrese ID">
+            <button onclick="performAction('DELETE', '/habitaciones/{id}')">Eliminar (DELETE)</button>
+        </div>
+
+        <div id="result-habitaciones" class="result-window"></div>
+        <button class="cyber-button" onclick="closeModal('habitaciones')">Cerrar</button>
+    </div>
+</div>
+
+<div id="modal-clientes" class="modal hidden">
+    <div class="modal-content">
+        <h2 class="modal-title">Operaciones para Clientes</h2>
+        <div class="operations-buttons">
+            <button onclick="performAction('GET', '/clientes')">Ver Todos (GET)</button>
+            <label for="clienteId">ID para Ver por ID (GET):</label>
+            <input type="text" id="clienteId" placeholder="Ingrese ID">
+            <button onclick="performAction('GET', '/clientes/{id}')">Ver por ID (GET)</button>
+
+            <div>
+                <label for="clienteID">ID del Cliente (Si se quiere ingresar manualmente):</label>
+                <input type="text" id="clienteID" placeholder="Ingrese ID">
+                <label for="nombres">Nombre:</label>
+                <input type="text" id="nombres" placeholder="Ingrese el nombre">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" placeholder="Ingrese los apellidos">
+                <label for="ci">CI:</label>
+                <input type="text" id="ci" placeholder="Ingrese el CI">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" placeholder="Ingrese el teléfono">
+                <button onclick="performAction('POST', '/clientes')">Agregar (POST)</button>
+            </div>
+
+            <label for="clienteIDPut">ID para Actualizar (PUT):</label>
+            <input type="text" id="clienteIDPut" placeholder="Ingrese ID">
+            <label for="nombresPut">Nuevo Nombre (PUT):</label>
+            <input type="text" id="nombresPut" placeholder="Nuevo nombre">
+            <label for="apellidosPut">Nuevos Apellidos (PUT):</label>
+            <input type="text" id="apellidosPut" placeholder="Nuevos apellidos">
+            <button onclick="performAction('PUT', '/clientes/{id}')">Actualizar Completo (PUT)</button>
+
+            <label for="nombresPatch">Nuevo Nombre (PATCH):</label>
+            <input type="text" id="nombresPatch" placeholder="Nuevo nombre">
+            <label for="apellidosPatch">Nuevos Apellidos (PATCH):</label>
+            <input type="text" id="apellidosPatch" placeholder="Nuevos apellidos">
+            <button onclick="performAction('PATCH', '/clientes/{id}')">Actualizar Parcial (PATCH)</button>
+
+            <label for="clienteIDDelete">ID para Eliminar:</label>
+            <input type="text" id="clienteIDDelete" placeholder="Ingrese ID">
+            <button onclick="performAction('DELETE', '/clientes/{id}')">Eliminar (DELETE)</button>
+        </div>
+        <div id="result-clientes" class="result-window"></div>
+        <button class="cyber-button" onclick="closeModal('clientes')">Cerrar</button>
+    </div>
+</div>
+
+<div id="modal-pagos" class="modal hidden">
+    <div class="modal-content">
+        <h2 class="modal-title">Operaciones para Pagos</h2>
+        <div class="operations-buttons">
+            <button onclick="performAction('GET', '/pagos')">Ver Todos (GET)</button>
+            <label for="pagoId">ID para Ver por ID (GET):</label>
+            <input type="text" id="pagoId" placeholder="Ingrese ID">
+            <button onclick="performAction('GET', '/pagos/{id}')">Ver por ID (GET)</button>
+
+            <div>
+                <label for="pagoID">ID del Pago (Si se quiere ingresar manualmente):</label>
+                <input type="text" id="pagoID" placeholder="Ingrese ID">
+                <label for="monto">Monto:</label>
+                <input type="number" id="monto" placeholder="Monto del pago">
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha">
+                <label for="metodo">Método de pago:</label>
+                <input type="text" id="metodo" placeholder="Ejemplo: Tarjeta, Efectivo">
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" placeholder="Ejemplo: Completado, Pendiente">
+                <button onclick="performAction('POST', '/pagos')">Agregar (POST)</button>
+            </div>
+
+            <label for="pagoIDPut">ID para Actualizar (PUT):</label>
+            <input type="text" id="pagoIDPut" placeholder="Ingrese ID">
+            <label for="montoPut">Nuevo Monto:</label>
+            <input type="number" id="montoPut" placeholder="Nuevo monto">
+            <label for="metodoPut">Nuevo Método de pago:</label>
+            <input type="text" id="metodoPut" placeholder="Nuevo método">
+            <button onclick="performAction('PUT', '/pagos/{id}')">Actualizar Completo (PUT)</button>
+
+            <label for="montoPatch">Nuevo Monto (PATCH):</label>
+            <input type="number" id="montoPatch" placeholder="Nuevo monto">
+            <label for="metodoPatch">Nuevo Método de pago (PATCH):</label>
+            <input type="text" id="metodoPatch" placeholder="Nuevo método">
+            <button onclick="performAction('PATCH', '/pagos/{id}')">Actualizar Parcial (PATCH)</button>
+
+            <label for="pagoIDDelete">ID para Eliminar:</label>
+            <input type="text" id="pagoIDDelete" placeholder="Ingrese ID">
+            <button onclick="performAction('DELETE', '/pagos/{id}')">Eliminar (DELETE)</button>
+        </div>
+
+        <div id="result-pagos" class="result-window"></div>
+        <button class="cyber-button" onclick="closeModal('pagos')">Cerrar</button>
+    </div>
+</div>
+
+<div id="modal-parqueo" class="modal hidden">
+    <div class="modal-content">
+        <h2 class="modal-title">Operaciones para Parqueo</h2>
+        <div class="operations-buttons">
+            <button onclick="performAction('GET', '/parqueo')">Ver Todos (GET)</button>
+            <label for="parqueoId">ID para Ver por ID (GET):</label>
+            <input type="text" id="parqueoId" placeholder="Ingrese ID">
+            <button onclick="performAction('GET', '/parqueo/{id}')">Ver por ID (GET)</button>
+
+            <div>
+                <label for="parqueoID">ID del Parqueo (Si se quiere ingresar manualmente):</label>
+                <input type="text" id="parqueoID" placeholder="Ingrese ID">
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" placeholder="Ejemplo: Toyota">
+                <label for="color">Color:</label>
+                <input type="text" id="color" placeholder="Ejemplo: Rojo">
+                <label for="placa">Placa:</label>
+                <input type="text" id="placa" placeholder="Ejemplo: ABC-1234">
+                <label for="precioPorNoche">Precio por Noche:</label>
+                <input type="number" id="precioPorNoche" placeholder="Precio">
+                <button onclick="performAction('POST', '/parqueo')">Agregar (POST)</button>
+            </div>
+
+            <label for="parqueoIDPut">ID para Actualizar (PUT):</label>
+            <input type="text" id="parqueoIDPut" placeholder="Ingrese ID">
+            <label for="precioPorNochePut">Nuevo Precio por Noche:</label>
+            <input type="number" id="precioPorNochePut" placeholder="Nuevo precio">
+            <button onclick="performAction('PUT', '/parqueo/{id}')">Actualizar Completo (PUT)</button>
+
+            <label for="precioPorNochePatch">Nuevo Precio por Noche (PATCH):</label>
+            <input type="number" id="precioPorNochePatch" placeholder="Nuevo precio">
+            <button onclick="performAction('PATCH', '/parqueo/{id}')">Actualizar Parcial (PATCH)</button>
+
+            <label for="parqueoIDDelete">ID para Eliminar:</label>
+            <input type="text" id="parqueoIDDelete" placeholder="Ingrese ID">
+            <button onclick="performAction('DELETE', '/parqueo/{id}')">Eliminar (DELETE)</button>
+        </div>
+
+        <div id="result-parqueo" class="result-window"></div>
+        <button class="cyber-button" onclick="closeModal('parqueo')">Cerrar</button>
+    </div>
+</div>
+
+<div id="modal-reserva" class="modal hidden">
+    <div class="modal-content">
+        <h2 class="modal-title">Operaciones para Reserva</h2>
+        <div class="operations-buttons">
+            <button onclick="performAction('GET', '/reserva')">Ver Todos (GET)</button>
+            <label for="reservaId">ID para Ver por ID (GET):</label>
+            <input type="text" id="reservaId" placeholder="Ingrese ID">
+            <button onclick="performAction('GET', '/reserva/{id}')">Ver por ID (GET)</button>
+
+            <div>
+                <label for="reservaID">ID de la Reserva (Si se quiere ingresar manualmente):</label>
+                <input type="text" id="reservaID" placeholder="Ingrese ID">
+                <label for="fechaEntrada">Fecha de Entrada:</label>
+                <input type="date" id="fechaEntrada">
+                <label for="fechaSalida">Fecha de Salida:</label>
+                <input type="date" id="fechaSalida">
+                <label for="habitacion">Habitación ID:</label>
+                <input type="text" id="habitacion" placeholder="ID de la habitación">
+                <button onclick="performAction('POST', '/reserva')">Agregar (POST)</button>
+            </div>
+
+            <label for="reservaIDPut">ID para Actualizar (PUT):</label>
+            <input type="text" id="reservaIDPut" placeholder="Ingrese ID">
+            <label for="fechaEntradaPut">Nueva Fecha de Entrada:</label>
+            <input type="date" id="fechaEntradaPut" placeholder="Nueva fecha">
+            <button onclick="performAction('PUT', '/reserva/{id}')">Actualizar Completo (PUT)</button>
+
+            <label for="fechaEntradaPatch">Nueva Fecha de Entrada (PATCH):</label>
+            <input type="date" id="fechaEntradaPatch" placeholder="Nueva fecha">
+            <button onclick="performAction('PATCH', '/reserva/{id}')">Actualizar Parcial (PATCH)</button>
+
+            <label for="reservaIDDelete">ID para Eliminar:</label>
+            <input type="text" id="reservaIDDelete" placeholder="Ingrese ID">
+            <button onclick="performAction('DELETE', '/reserva/{id}')">Eliminar (DELETE)</button>
+        </div>
+
+        <div id="result-reserva" class="result-window"></div>
+        <button class="cyber-button" onclick="closeModal('reserva')">Cerrar</button>
+    </div>
+</div>
+
+<div id="modal-personal" class="modal hidden">
+    <div class="modal-content">
+        <h2 class="modal-title">Operaciones para Personal</h2>
+        <div class="operations-buttons">
+            <button onclick="performAction('GET', '/personal')">Ver Todos (GET)</button>
+            <label for="personalId">ID para Ver por ID (GET):</label>
+            <input type="text" id="personalId" placeholder="Ingrese ID">
+            <button onclick="performAction('GET', '/personal/{id}')">Ver por ID (GET)</button>
+
+            <div>
+                <label for="personalID">ID del Personal (Si se quiere ingresar manualmente):</label>
+                <input type="text" id="personalID" placeholder="Ingrese ID">
+                <label for="nombrePersonal">Nombre:</label>
+                <input type="text" id="nombrePersonal" placeholder="Nombre del empleado">
+                <label for="rol">Rol:</label>
+                <input type="text" id="rol" placeholder="Rol del empleado">
+                <label for="idEmpleado">ID del Empleado:</label>
+                <input type="text" id="idEmpleado" placeholder="ID del empleado">
+                <button onclick="performAction('POST', '/personal')">Agregar (POST)</button>
+            </div>
+
+            <label for="personalIDPut">ID para Actualizar (PUT):</label>
+            <input type="text" id="personalIDPut" placeholder="Ingrese ID">
+            <label for="nombrePersonalPut">Nuevo Nombre:</label>
+            <input type="text" id="nombrePersonalPut" placeholder="Nuevo nombre">
+            <label for="rolPut">Nuevo Rol:</label>
+            <input type="text" id="rolPut" placeholder="Nuevo rol">
+            <button onclick="performAction('PUT', '/personal/{id}')">Actualizar Completo (PUT)</button>
+
+            <label for="nombrePersonalPatch">Nuevo Nombre (PATCH):</label>
+            <input type="text" id="nombrePersonalPatch" placeholder="Nuevo nombre">
+            <label for="rolPatch">Nuevo Rol (PATCH):</label>
+            <input type="text" id="rolPatch" placeholder="Nuevo rol">
+            <button onclick="performAction('PATCH', '/personal/{id}')">Actualizar Parcial (PATCH)</button>
+
+            <label for="personalIDDelete">ID para Eliminar:</label>
+            <input type="text" id="personalIDDelete" placeholder="Ingrese ID">
+            <button onclick="performAction('DELETE', '/personal/{id}')">Eliminar (DELETE)</button>
+        </div>
+
+        <div id="result-personal" class="result-window"></div>
+        <button class="cyber-button" onclick="closeModal('personal')">Cerrar</button>
+    </div>
+</div>
+
+<script>
+
+    function showModal(id) {
+        document.getElementById("modal-" + id).classList.remove("hidden");
+    }
+
+    function closeModal(id) {
+        document.getElementById("modal-" + id).classList.add("hidden");
+    }
+
+    function performAction(method, url = '') {
+        const idInput = document.getElementById(idInputName(method));
+        const fullUrl = 'http://localhost:8080' + url.replace("{id}", idInput ? idInput.value : '');
+
+        let options = {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        };
+
+        if (method === 'POST' || method === 'PUT' || method === 'PATCH') {
+            const data = collectFormData(url);
+            options.body = JSON.stringify(data);
+        }
+
+        fetch(fullUrl, options)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Respuesta de la API:', data);
+                if (method === 'GET') {
+                    displayResults(data, url);
+                } else {
+                    alert('Operación completada');
+                }
+            })
+            .catch(error => {
+                console.error('Error en la solicitud:', error);
+                alert('Error en la operación');
+            });
+    }
+
+
+    function idInputName(method) {
+        return method === 'GET' ? 'habitacionId' : '';
+    }
+
+    function collectFormData(url) {
+        let formData = {};
+        if (url.includes('habitaciones')) {
+            formData = {
+                tipoHabitacion: document.getElementById("tipoHabitacion").value,
+                disponible: document.getElementById("disponible").checked,
+                precioNoche: document.getElementById("precioNoche").value
+            };
+        }
+
+        if (url.includes('clientes')) {
+            formData = {
+                nombres: document.getElementById("nombres").value,
+                apellidos: document.getElementById("apellidos").value,
+                ci: document.getElementById("ci").value,
+                telefono: document.getElementById("telefono").value
+            };
+        }
+
+        return formData;
+    }
+
+    function displayResults(data, url) {
+        let resultContainer = '';
+
+        if (Array.isArray(data)) {
+            resultContainer = `<h3>Resultados de ${url}</h3><table border="1"><tr><th>ID</th><th>Tipo de Habitación</th><th>Disponible</th><th>Precio por Noche</th></tr>`;
+            data.forEach(item => {
+                resultContainer += `
+                    <tr>
+                        <td>${item.id}</td>
+                        <td>${item.tipoHabitacion}</td>
+                        <td>${item.disponible ? 'Sí' : 'No'}</td>
+                        <td>${item.precioNoche}</td>
+                    </tr>`;
+            });
+            resultContainer += `</table>`;
+        } else {
+
+            resultContainer = `
+                <h3>Resultado:</h3>
+                <ul>
+                    <li><strong>ID:</strong> ${data.id ? data.id : 'No disponible'}</li>
+                    <li><strong>Tipo de Habitación:</strong> ${data.tipoHabitacion}</li>
+                    <li><strong>Disponible:</strong> ${data.disponible ? 'Sí' : 'No'}</li>
+                    <li><strong>Precio por Noche:</strong> ${data.precioNoche}</li>
+                </ul>`;
+        }
+
+        document.getElementById('result-' + url.split('/')[1]).innerHTML = resultContainer;
+    }
+</script>
+
+</body>
+</html>
