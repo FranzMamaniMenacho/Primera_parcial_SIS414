@@ -9,16 +9,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function performAction(method, url = '') {
-        const idInput = getIdInput(url);  // Obtener el ID ingresado dinámicamente
-        const dataInput = getFormData(url); // Recoger los datos del formulario
+        const idInput = getIdInput(url);
+        const dataInput = getFormData(url);
 
-        // Si es un GET por ID, se asegura de que la URL incluya el ID correcto
+
         let finalUrl = url;
         if (idInput) {
-            finalUrl = url.replace("{id}", idInput);  // Reemplazar {id} con el valor del ID
+            finalUrl = url.replace("{id}", idInput);
         }
 
-        const fullUrl = 'http://localhost:8080' + finalUrl; // URL completa de la solicitud
+        const fullUrl = 'http://localhost:8080' + finalUrl;
 
         let options = {
             method: method,
@@ -50,43 +50,43 @@ document.addEventListener('DOMContentLoaded', function () {
     function getIdInput(url) {
         let idInput = '';
 
-        // Habitaciones
+
         if (url.includes('habitaciones')) {
             idInput = document.getElementById("habitacionId").value || '';
         }
 
-        // Clientes
+
         if (url.includes('clientes')) {
             idInput = document.getElementById("clienteId").value || '';
         }
 
-        // Pagos
+
         if (url.includes('pagos')) {
             idInput = document.getElementById("pagoId").value || '';
         }
 
-        // Parqueo
+
         if (url.includes('parqueo')) {
             idInput = document.getElementById("parqueoId").value || '';
         }
 
-        // Reserva
+
         if (url.includes('reserva')) {
             idInput = document.getElementById("reservaId").value || '';
         }
 
-        // Personal
+
         if (url.includes('personal')) {
             idInput = document.getElementById("personalId").value || '';
         }
 
-        return idInput && !isNaN(idInput) ? Number(idInput) : '';  // Solo si el ID es válido
+        return idInput && !isNaN(idInput) ? Number(idInput) : '';
     }
 
     function getFormData(url) {
         let formData = {};
 
-        // Habitaciones
+
         if (url.includes('habitaciones')) {
             formData = {
                 tipoHabitacion: document.getElementById("tipoHabitacion").value || '',
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         }
 
-        // Clientes
+
         if (url.includes('clientes')) {
             formData = {
                 nombres: document.getElementById("nombres").value || '',
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         }
 
-        // Pagos
+
         if (url.includes('pagos')) {
             formData = {
                 monto: document.getElementById("monto").value || '',
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         }
 
-        // Parqueo
+
         if (url.includes('parqueo')) {
             formData = {
                 marca: document.getElementById("marca").value || '',
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         }
 
-        // Reserva
+
         if (url.includes('reserva')) {
             formData = {
                 fechaEntrada: document.getElementById("fechaEntrada").value || '',
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         }
 
-        // Personal
+
         if (url.includes('personal')) {
             formData = {
                 nombrePersonal: document.getElementById("nombrePersonal").value || '',
@@ -174,17 +174,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const listElement = document.getElementById(listContainer);
-        listElement.innerHTML = '';  // Limpiar los resultados anteriores
+        listElement.innerHTML = '';
 
         if (Array.isArray(data)) {
-            // Si los datos son una lista (GET todos)
             data.forEach(item => {
                 let listItem = document.createElement('div');
                 listItem.innerHTML = `<strong>ID:</strong> ${item.id} <br> <strong>Detalles:</strong> ${JSON.stringify(item)}`;
                 listElement.appendChild(listItem);
             });
         } else {
-            // Si los datos son un solo objeto (GET por ID)
             let listItem = document.createElement('div');
             listItem.innerHTML = `<strong>ID:</strong> ${data.id} <br> <strong>Detalles:</strong> ${JSON.stringify(data)}`;
             listElement.appendChild(listItem);
