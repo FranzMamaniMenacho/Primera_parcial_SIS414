@@ -9,11 +9,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function performAction(method, url = '') {
-        const idInput = getIdInput(url);
-        const dataInput = getFormData(url);
+        const idInput = getIdInput(url);  // Obtener el ID ingresado dinámicamente
+        const dataInput = getFormData(url); // Recoger los datos del formulario
 
-        const finalUrl = url.replace("{id}", idInput);
-        const fullUrl = 'http://localhost:8080' + finalUrl;
+        // Si es un GET por ID, se asegura de que la URL incluya el ID correcto
+        let finalUrl = url;
+        if (idInput) {
+            finalUrl = url.replace("{id}", idInput);  // Reemplazar {id} con el valor del ID
+        }
+
+        const fullUrl = 'http://localhost:8080' + finalUrl; // URL completa de la solicitud
 
         let options = {
             method: method,
@@ -42,27 +47,99 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-
     function getIdInput(url) {
         let idInput = '';
+
+        // Habitaciones
         if (url.includes('habitaciones')) {
-            idInput = document.getElementById("habitacionID").value || '';
-        }
-        if (url.includes('clientes')) {
-            idInput = document.getElementById("clienteID").value || '';
+            idInput = document.getElementById("habitacionId").value || '';
         }
 
-        return idInput && !isNaN(idInput) ? Number(idInput) : '';
+        // Clientes
+        if (url.includes('clientes')) {
+            idInput = document.getElementById("clienteId").value || '';
+        }
+
+        // Pagos
+        if (url.includes('pagos')) {
+            idInput = document.getElementById("pagoId").value || '';
+        }
+
+        // Parqueo
+        if (url.includes('parqueo')) {
+            idInput = document.getElementById("parqueoId").value || '';
+        }
+
+        // Reserva
+        if (url.includes('reserva')) {
+            idInput = document.getElementById("reservaId").value || '';
+        }
+
+        // Personal
+        if (url.includes('personal')) {
+            idInput = document.getElementById("personalId").value || '';
+        }
+
+        return idInput && !isNaN(idInput) ? Number(idInput) : '';  // Solo si el ID es válido
     }
 
     function getFormData(url) {
         let formData = {};
-        if (url.includes('habitaciones') || url.includes('clientes')) {
+
+        // Habitaciones
+        if (url.includes('habitaciones')) {
+            formData = {
+                tipoHabitacion: document.getElementById("tipoHabitacion").value || '',
+                disponible: document.getElementById("disponible").checked || false,
+                precioNoche: document.getElementById("precioNoche").value || ''
+            };
+        }
+
+        // Clientes
+        if (url.includes('clientes')) {
             formData = {
                 nombres: document.getElementById("nombres").value || '',
                 apellidos: document.getElementById("apellidos").value || '',
                 ci: document.getElementById("ci").value || '',
                 telefono: document.getElementById("telefono").value || ''
+            };
+        }
+
+        // Pagos
+        if (url.includes('pagos')) {
+            formData = {
+                monto: document.getElementById("monto").value || '',
+                fecha: document.getElementById("fecha").value || '',
+                metodo: document.getElementById("metodo").value || '',
+                estado: document.getElementById("estado").value || ''
+            };
+        }
+
+        // Parqueo
+        if (url.includes('parqueo')) {
+            formData = {
+                marca: document.getElementById("marca").value || '',
+                placa: document.getElementById("placa").value || '',
+                precioPorNoche: document.getElementById("precioPorNoche").value || '',
+                color: document.getElementById("color").value || ''
+            };
+        }
+
+        // Reserva
+        if (url.includes('reserva')) {
+            formData = {
+                fechaEntrada: document.getElementById("fechaEntrada").value || '',
+                fechaSalida: document.getElementById("fechaSalida").value || '',
+                habitacion: document.getElementById("habitacion").value || ''
+            };
+        }
+
+        // Personal
+        if (url.includes('personal')) {
+            formData = {
+                nombrePersonal: document.getElementById("nombrePersonal").value || '',
+                rol: document.getElementById("rol").value || '',
+                idEmpleado: document.getElementById("idEmpleado").value || ''
             };
         }
 
@@ -78,7 +155,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (url.includes('personal')) return 'personal';
         return '';
     }
-
 
     function displayList(data, url) {
         let listContainer = '';
@@ -98,63 +174,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const listElement = document.getElementById(listContainer);
-        listElement.innerHTML = '';
-        data.forEach(item => {
+        listElement.innerHTML = '';  // Limpiar los resultados anteriores
+
+        if (Array.isArray(data)) {
+            // Si los datos son una lista (GET todos)
+            data.forEach(item => {
+                let listItem = document.createElement('div');
+                listItem.innerHTML = `<strong>ID:</strong> ${item.id} <br> <strong>Detalles:</strong> ${JSON.stringify(item)}`;
+                listElement.appendChild(listItem);
+            });
+        } else {
+            // Si los datos son un solo objeto (GET por ID)
             let listItem = document.createElement('div');
-            listItem.textContent = JSON.stringify(item);
+            listItem.innerHTML = `<strong>ID:</strong> ${data.id} <br> <strong>Detalles:</strong> ${JSON.stringify(data)}`;
             listElement.appendChild(listItem);
-        });
-    }
-
-    function setupActionButtons() {
-
-        document.querySelectorAll('.button-habitaciones').forEach(button => {
-            button.addEventListener('click', function () {
-                const method = this.dataset.method;
-                const url = this.dataset.url;
-                performAction(method, url);
-            });
-        });
-
-        document.querySelectorAll('.button-clientes').forEach(button => {
-            button.addEventListener('click', function () {
-                const method = this.dataset.method;
-                const url = this.dataset.url;
-                performAction(method, url);
-            });
-        });
-
-        document.querySelectorAll('.button-pagos').forEach(button => {
-            button.addEventListener('click', function () {
-                const method = this.dataset.method;
-                const url = this.dataset.url;
-                performAction(method, url);
-            });
-        });
-
-        document.querySelectorAll('.button-parqueo').forEach(button => {
-            button.addEventListener('click', function () {
-                const method = this.dataset.method;
-                const url = this.dataset.url;
-                performAction(method, url);
-            });
-        });
-
-        document.querySelectorAll('.button-reserva').forEach(button => {
-            button.addEventListener('click', function () {
-                const method = this.dataset.method;
-                const url = this.dataset.url;
-                performAction(method, url);
-            });
-        });
-
-        document.querySelectorAll('.button-personal').forEach(button => {
-            button.addEventListener('click', function () {
-                const method = this.dataset.method;
-                const url = this.dataset.url;
-                performAction(method, url);
-            });
-        });
+        }
     }
 
     setupActionButtons();
