@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+@CrossOrigin(origins ="http://localhost")
 
 @RestController
 @RequestMapping("/clientes")
@@ -103,8 +104,6 @@ public class ClienteController {
         if (updates.getNombres() != null) {
             cliente.setNombres(updates.getNombres());
             logger.
-
-                    MaZorca, [24/4/2025 21:39]
             info("Nombres actualizados para cliente ID: {}", id);
         }
         if (updates.getApellidos() != null) {

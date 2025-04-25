@@ -1,21 +1,20 @@
 package FirstParcial.sis414.FirstParcial.entity;
 import java.time.LocalDate;
 public class Reserv {
-
     private Long id;
-    private Cliente cliente;
-    private Habitacion habitacion;
+    private Long clienteId;
+    private Long habitacionId;
     private LocalDate fechaEntrada;
     private LocalDate fechaSalida;
-    private Pago pago;
+    private Long pagoId;
 
-    public Reserv(Long id, Cliente cliente, Habitacion habitacion, LocalDate fechaEntrada, LocalDate fechaSalida, Pago pago) {
+    public Reserv(Long id, Long cliente, Long habitacion, LocalDate fechaEntrada, LocalDate fechaSalida, Long pagoId) {
         this.id = id;
-        this.cliente = cliente;
-        this.habitacion = habitacion;
+        this.clienteId = cliente;
+        this.habitacionId = habitacion;
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
-        this.pago = pago;
+        this.pagoId = pagoId;
     }
 
     public Long getId() {
@@ -24,22 +23,6 @@ public class Reserv {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Habitacion getHabitacion() {
-        return habitacion;
-    }
-
-    public void setHabitacion(Habitacion habitacion) {
-        this.habitacion = habitacion;
     }
 
     public LocalDate getFechaEntrada() {
@@ -58,12 +41,29 @@ public class Reserv {
         this.fechaSalida = fechaSalida;
     }
 
-    public Pago getPago() {
-        return pago;
+    public Long getClienteId() {
+        return clienteId;
     }
 
-    public void setPago(Pago pago) {
-        this.pago = pago;
+    public void setClienteId(Long clienteId) {
+        this.clienteId = clienteId;
     }
+
+    public Long getHabitacionId() {
+        return habitacionId;
+    }
+
+    public void setHabitacionId(Long habitacionId) {
+        this.habitacionId = habitacionId;
+    }
+
+    public Long getPagoId() {
+        return pagoId;
+    }
+
+    public void setPagoId(Long pagoId) {
+        this.pagoId = pagoId;
+    }
+
 }
 

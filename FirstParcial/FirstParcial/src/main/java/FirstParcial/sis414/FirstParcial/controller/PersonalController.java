@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+@CrossOrigin(origins ="http://localhost")
 @RestController
 @RequestMapping("/personal")
 public class PersonalController {
@@ -69,7 +69,7 @@ public class PersonalController {
         Personal toUpdate = existingPersonal.get();
         toUpdate.setNombre(personal.getNombre());
         toUpdate.setRol(personal.getRol());
-        toUpdate.setIdEmpleado(personal.getIdEmpleado());
+        toUpdate.setCI(personal.getCI());
 
         logger.info("Personal con ID {} actualizado exitosamente", id);
         return ResponseEntity.ok(toUpdate);
@@ -107,8 +107,8 @@ public class PersonalController {
             personal.setRol(updates.getRol());
             logger.info("Rol actualizado para personal ID: {}", id);
         }
-        if (updates.getIdEmpleado() != null) {
-            personal.setIdEmpleado(updates.getIdEmpleado());
+        if (updates.getCI() != null) {
+            personal.setCI(updates.getCI());
             logger.info("ID de empleado actualizado para personal ID: {}", id);
         }
 

@@ -4,12 +4,12 @@ public class Personal {
     private Long id;
     private String nombre;
     private String rol;
-    private String idEmpleado;
+    private String CI;
 
-    public Personal(String nombre, String rol, String idEmpleado) {
+    public Personal(String nombre, String rol, String CI) {
         this.nombre = nombre;
         this.rol = rol;
-        this.idEmpleado = idEmpleado;
+        this.CI = CI;
     }
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}
@@ -20,6 +20,8 @@ public class Personal {
     public String getRol() { return rol; }
     public void setRol(String rol) { this.rol = rol; }
 
-    public String getIdEmpleado() { return idEmpleado; }
-    public void setIdEmpleado(String idEmpleado) { this.idEmpleado = idEmpleado; }
+    public String getCI() {return CI;}
+    public void setCI(String CI) {this.CI = CI;}
+
+
 }
