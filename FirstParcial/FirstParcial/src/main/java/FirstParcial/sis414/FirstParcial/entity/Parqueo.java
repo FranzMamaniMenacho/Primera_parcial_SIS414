@@ -2,21 +2,29 @@ package FirstParcial.sis414.FirstParcial.entity;
 
 public class Parqueo {
     private Long id;
-    private boolean disponible;
+    private String estado;
     private double precioPorNoche;
     private String marca;
     private String color;
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
     private String placa;
 
-    public Parqueo(Long id, boolean disponible, double precioPorNoche, String marca, String color, String placa) {
+    public Parqueo(Long id,String estado, double precioPorNoche, String marca, String color, String placa) {
         this.id = id;
-        this.disponible = disponible;
+        this.estado = estado;
         this.precioPorNoche = precioPorNoche;
         this.marca = marca;
         this.color = color;
         this.placa = placa;
     }
-
     public Long getId() {
         return id;
     }
@@ -24,13 +32,12 @@ public class Parqueo {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public boolean isDisponible() {
-        return disponible;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public double getPrecioPorNoche() {
@@ -55,13 +62,5 @@ public class Parqueo {
 
     public void setColor(String color) {
         this.color = color;
-    }
-
-    public String getPlaca() {
-        return placa;
-    }
-
-    public void setPlaca(String placa) {
-        this.placa = placa;
     }
 }

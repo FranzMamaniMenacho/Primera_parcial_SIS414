@@ -3,9 +3,12 @@ package FirstParcial.sis414.FirstParcial.controller;
 import FirstParcial.sis414.FirstParcial.entity.Parqueo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/parqueos")
@@ -15,85 +18,71 @@ public class ParqueoController {
     private List<Parqueo> parqueos = new ArrayList<>();
 
     @GetMapping
-    public List<Parqueo> getParqueos() {
+    public ResponseEntity<List<Parqueo>> getAllParqueos() {
         logger.info("Solicitando lista de parqueos.");
-        return parqueos;
+        return ResponseEntity.ok(parqueos);
     }
 
     @GetMapping("/{id}")
-    public Parqueo getParqueo(@PathVariable Long id) {
-        logger.info("Solicitando parqueo con ID: {}", id);
-        for (Parqueo parqueo : parqueos) {
-            if (parqueo.getId().equals(id)) {
-                logger.info("Parqueo encontrado con ID: {}", id);
-                return parqueo;
-            }
+    public ResponseEntity<?> getParqueoById(@PathVariable Long id) {
+        logger.info("Buscando parqueo con ID: {}", id);
+        Optional<Parqueo> parqueo = parqueos.stream()
+                .filter(p -> p.getId().equals(id))
+                .findFirst();
+
+        if (parqueo.isPresent()) {
+            return ResponseEntity.ok(parqueo.get());
+        } else {
+            logger.warn("Parqueo con ID {} no encontrado", id);
+            return ResponseEntity.status(404).body("Parqueo no encontrado.");
         }
-        logger.warn("Parqueo con ID {} no encontrado.", id);
-        return null;
     }
 
     @PostMapping
-    public Parqueo addParqueo(@RequestBody Parqueo parqueo) {
+    public ResponseEntity<?> createParqueo(@RequestBody Parqueo parqueo) {
+        if (parqueo.getId() == null) {
+            logger.error("Intento de crear parqueo sin ID");
+            return ResponseEntity.status(400).body("Se requiere ID para crear un parqueo");
+        }
+
+        if (parqueos.stream().anyMatch(p -> p.getId().equals(parqueo.getId()))) {
+            logger.error("Ya existe un parqueo con ID: {}", parqueo.getId());
+            return ResponseEntity.status(400).body("Ya existe un parqueo con este ID");
+        }
+
         parqueos.add(parqueo);
         logger.info("Nuevo parqueo creado con ID: {}", parqueo.getId());
-        return parqueo;
+        return ResponseEntity.ok(parqueo);
     }
 
     @PutMapping("/{id}")
-    public Parqueo updateParqueo(@PathVariable Long id, @RequestBody Parqueo parqueo) {
-        logger.info("Actualizando parqueo con ID: {}", id);
-        for (int i = 0; i < parqueos.size(); i++) {
-            if (parqueos.get(i).getId().equals(id)) {
-                parqueos.set(i, parqueo);
-                logger.info("Parqueo con ID {} actualizado.", id);
-                return parqueo;
-            }
-        }
-        logger.warn("No se encontró parqueo con ID {} para actualizar.", id);
-        return null;
-    }
-
-    @PatchMapping("/{id}")
-    public Parqueo patchParqueo(@PathVariable Long id, @RequestBody Parqueo partialParqueo) {
-        logger.info("Actualizando parcialmente parqueo con ID: {}", id);
+    public ResponseEntity<?> updateParqueo(@PathVariable Long id, @RequestBody Parqueo parqueoDetails) {
         for (Parqueo parqueo : parqueos) {
             if (parqueo.getId().equals(id)) {
-                if (partialParqueo.getMarca() != null) {
-                    parqueo.setMarca(partialParqueo.getMarca());
-                    logger.info("Marca actualizada para parqueo con ID: {}", id);
-                }
-                if (partialParqueo.getColor() != null) {
-                    parqueo.setColor(partialParqueo.getColor());
-                    logger.info("Color actualizado para parqueo con ID: {}", id);
-                }
-                if (partialParqueo.getPrecioPorNoche() != 0) {
-                    parqueo.setPrecioPorNoche(partialParqueo.getPrecioPorNoche());
-                    logger.info("Precio por noche actualizado para parqueo con ID: {}", id);
-                }
-                if (partialParqueo.getPlaca() != null) {
-                    parqueo.setPlaca(partialParqueo.getPlaca());
-                    logger.info("Placa actualizada para parqueo con ID: {}", id);
-                }
-                parqueo.setDisponible(partialParqueo.isDisponible());
-                logger.info("Disponibilidad actualizada para parqueo con ID: {}", id);
-                return parqueo;
+                parqueo.setEstado(parqueoDetails.getEstado());
+                parqueo.setPrecioPorNoche(parqueoDetails.getPrecioPorNoche());
+                parqueo.setMarca(parqueoDetails.getMarca());
+                parqueo.setColor(parqueoDetails.getColor());
+                parqueo.setPlaca(parqueoDetails.getPlaca());
+
+                logger.info("Parqueo con ID {} actualizado completamente", id);
+                return ResponseEntity.ok(parqueo);
             }
         }
-        logger.warn("No se encontró parqueo con ID {} para actualización parcial.", id);
-        return null;
+
+        logger.warn("No se encontró parqueo con ID {} para actualizar", id);
+        return ResponseEntity.status(404).body("Parqueo no encontrado para actualización");
     }
 
     @DeleteMapping("/{id}")
-    public String deleteParqueo(@PathVariable Long id) {
-        logger.info("Intentando eliminar parqueo con ID: {}", id);
-        boolean removed = parqueos.removeIf(parqueo -> parqueo.getId().equals(id));
+    public ResponseEntity<?> deleteParqueo(@PathVariable Long id) {
+        boolean removed = parqueos.removeIf(p -> p.getId().equals(id));
         if (removed) {
-            logger.info("Parqueo con ID {} eliminado con éxito.", id);
-            return "Parqueo eliminado con éxito.";
+            logger.info("Parqueo con ID {} eliminado exitosamente", id);
+            return ResponseEntity.ok("Parqueo eliminado con éxito");
         } else {
-            logger.error("No se pudo eliminar el parqueo con ID {}. No encontrado.", id);
-            return "Parqueo no encontrado.";
+            logger.warn("Intento de eliminar parqueo no existente con ID: {}", id);
+            return ResponseEntity.status(404).body("Parqueo no encontrado para eliminar");
         }
     }
 }

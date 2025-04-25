@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/habitaciones")
@@ -16,97 +17,101 @@ public class HabitacionController {
     private static final Logger logger = LoggerFactory.getLogger(HabitacionController.class);
     private List<Habitacion> habitaciones = new ArrayList<>();
 
-    // Obtener todas las habitaciones
     @GetMapping
-    public List<Habitacion> getHabitaciones() {
-        logger.info("Solicitando lista de habitaciones.");
-        return habitaciones;
+    public ResponseEntity<List<Habitacion>> getAllHabitaciones() {
+        logger.info("Obteniendo lista completa de habitaciones");
+        return ResponseEntity.ok(habitaciones);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Habitacion> getHabitacion(@PathVariable Long id) {
-        logger.info("Solicitando habitación con ID: {}", id);
-        for (Habitacion habitacion : habitaciones) {
-            if (habitacion.getId().equals(id)) {
-                logger.info("Habitación encontrada: {}", habitacion.getId());
-                return ResponseEntity.ok(habitacion);
-            }
+    public ResponseEntity<?> getHabitacionById(@PathVariable Long id) {
+        logger.info("Buscando habitación con ID: {}", id);
+        Optional<Habitacion> habitacion = habitaciones.stream()
+                .filter(h -> h.getId().equals(id))
+                .findFirst();
+
+        if (habitacion.isPresent()) {
+            return ResponseEntity.ok(habitacion.get());
+        } else {
+            logger.warn("Habitación con ID {} no encontrada", id);
+            return ResponseEntity.status(404).body("Habitación no encontrada");
         }
-        logger.warn("Habitación con ID {} no encontrada.", id);
-        return ResponseEntity.notFound().build();
     }
 
     @PostMapping
-    public Habitacion addHabitacion(@RequestBody Habitacion habitacion) {
+    public ResponseEntity<?> createHabitacion(@RequestBody Habitacion habitacion) {
         if (habitacion.getId() == null) {
-            habitacion.setId(generateId());
+            logger.error("Intento de crear habitación sin ID");
+            return ResponseEntity.status(400).body("Se requiere ID para crear una habitación");
         }
+
+        if (habitaciones.stream().anyMatch(h -> h.getId().equals(habitacion.getId()))) {
+            logger.error("Ya existe una habitación con ID: {}", habitacion.getId());
+            return ResponseEntity.status(400).body("Ya existe una habitación con este ID");
+        }
+
         habitaciones.add(habitacion);
-        logger.info("Se ha creado una nueva habitación con ID: {}", habitacion.getId());
-        return habitacion;
+        logger.info("Nueva habitación creada con ID: {}", habitacion.getId());
+        return ResponseEntity.ok(habitacion);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Habitacion> updateHabitacion(@PathVariable Long id, @RequestBody Habitacion habitacion) {
-        if (habitaciones.isEmpty()) {
-            logger.warn("No hay habitaciones para actualizar.");
-            return ResponseEntity.status(404).body(null);
-        }
+    public ResponseEntity<?> updateHabitacion(@PathVariable Long id, @RequestBody Habitacion habitacionDetails) {
+        for (Habitacion habitacion : habitaciones) {
+            if (habitacion.getId().equals(id)) {
+                habitacion.setTipoHabitacion(habitacionDetails.getTipoHabitacion());
+                habitacion.setEstado(habitacionDetails.getEstado());
+                habitacion.setPrecioNoche(habitacionDetails.getPrecioNoche());
 
-        for (int i = 0; i < habitaciones.size(); i++) {
-            Habitacion existingHabitacion = habitaciones.get(i);
-
-            if (existingHabitacion.getId().equals(id)) {
-                existingHabitacion.setTipoHabitacion(habitacion.getTipoHabitacion());
-                existingHabitacion.setDisponible(habitacion.isDisponible());
-                existingHabitacion.setPrecioNoche(habitacion.getPrecioNoche());
-
-                logger.info("Habitación con ID {} actualizada: {}", id, existingHabitacion);
-
-                return ResponseEntity.ok(existingHabitacion);
+                logger.info("Habitación con ID {} actualizada completamente", id);
+                return ResponseEntity.ok(habitacion);
             }
         }
 
-        logger.warn("No se encontró habitación con ID {} para actualizar.", id);
-        return ResponseEntity.status(404).body(null);  // 404 Not Found
+        logger.warn("No se encontró habitación con ID {} para actualizar", id);
+        return ResponseEntity.status(404).body("Habitación no encontrada para actualización");
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteHabitacion(@PathVariable Long id) {
-        boolean removed = habitaciones.removeIf(habitacion -> habitacion.getId().equals(id));
+    public ResponseEntity<?> deleteHabitacion(@PathVariable Long id) {
+        boolean removed = habitaciones.removeIf(h -> h.getId().equals(id));
         if (removed) {
-            logger.info("Habitación con ID {} eliminada con éxito.", id);
-            return ResponseEntity.ok("Habitación eliminada con éxito.");
+            logger.info("Habitación con ID {} eliminada exitosamente", id);
+            return ResponseEntity.ok("Habitación eliminada con éxito");
         } else {
-            logger.warn("No se pudo eliminar la habitación con ID {}. No encontrada.", id);
-            return ResponseEntity.status(404).body("Habitación no encontrada.");
+            logger.warn("Intento de eliminar habitación no existente con ID: {}", id);
+            return ResponseEntity.status(404).body("Habitación no encontrada para eliminar");
         }
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Habitacion> patchHabitacion(@PathVariable Long id, @RequestBody Habitacion partialHabitacion) {
-        for (Habitacion habitacion : habitaciones) {
-            if (habitacion.getId().equals(id)) {
-                if (partialHabitacion.getTipoHabitacion() != null) {
-                    habitacion.setTipoHabitacion(partialHabitacion.getTipoHabitacion());
-                    logger.info("Tipo de habitación actualizado para ID: {}", id);
-                }
-                if (partialHabitacion.isDisponible() != habitacion.isDisponible()) {
-                    habitacion.setDisponible(partialHabitacion.isDisponible());
-                    logger.info("Disponibilidad de habitación actualizada para ID: {}", id);
-                }
-                if (partialHabitacion.getPrecioNoche() > 0) {
-                    habitacion.setPrecioNoche(partialHabitacion.getPrecioNoche());
-                    logger.info("Precio de habitación actualizado para ID: {}", id);
-                }
-                return ResponseEntity.ok(habitacion);
-            }
-        }
-        logger.warn("No se encontró habitación con ID {} para actualizar parcialmente.", id);
-        return ResponseEntity.status(404).body(null);
-    }
+    public ResponseEntity<?> partialUpdateHabitacion(@PathVariable Long id, @RequestBody Habitacion partialHabitacion) {
+        Optional<Habitacion> habitacionOpt = habitaciones.stream()
+                .filter(h -> h.getId().equals(id))
+                .findFirst();
 
-    private Long generateId() {
-        return (long) (habitaciones.size() + 1);
+        if (habitacionOpt.isEmpty()) {
+            logger.warn("Intento de actualizar habitación no existente con ID: {}", id);
+            return ResponseEntity.status(404).body("Habitación no encontrada para actualización parcial");
+        }
+
+        Habitacion habitacion = habitacionOpt.get();
+
+        if (partialHabitacion.getTipoHabitacion() != null) {
+            habitacion.setTipoHabitacion(partialHabitacion.getTipoHabitacion());
+            logger.info("Tipo de habitación actualizado para ID: {}", id);
+        }
+
+        if (partialHabitacion.getEstado() != null) {
+            habitacion.setEstado(partialHabitacion.getEstado());
+            logger.info("Estado actualizado para habitación ID: {}", id);
+        }
+
+        if (partialHabitacion.getPrecioNoche() > 0) {
+            habitacion.setPrecioNoche(partialHabitacion.getPrecioNoche());
+            logger.info("Precio por noche actualizado para habitación ID: {}", id);
+        }
+
+        return ResponseEntity.ok(habitacion);
     }
 }

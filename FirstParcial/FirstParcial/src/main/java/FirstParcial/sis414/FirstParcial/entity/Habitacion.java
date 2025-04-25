@@ -3,17 +3,15 @@ package FirstParcial.sis414.FirstParcial.entity;
 public class Habitacion {
     private Long id;
     private String tipoHabitacion;
-    private boolean disponible;
+    private String estado;
     private double precioNoche;
 
-    public Habitacion(Long id, String tipoHabitacion, boolean disponible, double precioNoche) {
+    public Habitacion(Long id, String tipoHabitacion, String estado, double precioNoche) {
         this.id = id;
         this.tipoHabitacion = tipoHabitacion;
-        this.disponible = disponible;
+        this.estado= estado;
         this.precioNoche = precioNoche;
     }
-
-
     public Long getId() {
         return id;
     }
@@ -22,6 +20,13 @@ public class Habitacion {
         this.id = id;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
     public String getTipoHabitacion() {
         return tipoHabitacion;
@@ -31,13 +36,6 @@ public class Habitacion {
         this.tipoHabitacion = tipoHabitacion;
     }
 
-    public boolean isDisponible() {
-        return disponible;
-    }
-
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
-    }
 
     public double getPrecioNoche() {
         return precioNoche;
