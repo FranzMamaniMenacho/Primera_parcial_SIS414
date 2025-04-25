@@ -6,7 +6,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/personal")
@@ -17,80 +19,100 @@ public class PersonalController {
 
     @GetMapping
     public ResponseEntity<List<Personal>> getAllPersonal() {
-        logger.info("Solicitando todos los registros de personal.");
+        logger.info("Obteniendo listado completo de personal");
         return ResponseEntity.ok(personalList);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Personal> getPersonalById(@PathVariable Long id) {
-        logger.info("Buscando personal con ID: {}", id);
-        return findPersonalById(id)
-                .map(personal -> {
-                    logger.info("Personal encontrado: {}", personal);
-                    return ResponseEntity.ok(personal);
-                })
-                .orElseGet(() -> {
-                    logger.warn("Personal no encontrado con ID: {}", id);
-                    return ResponseEntity.notFound().build();
-                });
-    }
+    public ResponseEntity<?> getPersonalById(@PathVariable Long id) {
+        logger.info("Consultando personal con ID: {}", id);
+        Optional<Personal> personal = personalList.stream()
+                .filter(p -> p.getId().equals(id))
+                .findFirst();
 
-    @PostMapping
-    public ResponseEntity<Personal> createPersonal(@RequestBody Personal personal) {
-        personalList.add(personal);
-        logger.info("Nuevo personal agregado: {}", personal);
-        return ResponseEntity.status(201).body(personal);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Personal> updatePersonal(@PathVariable Long id, @RequestBody Personal updated) {
-        logger.info("Intentando actualizar personal con ID: {}", id);
-        return findPersonalById(id)
-                .map(existing -> {
-                    int index = personalList.indexOf(existing);
-                    personalList.set(index, updated);
-                    logger.info("Personal actualizado: {}", updated);
-                    return ResponseEntity.ok(updated);
-                })
-                .orElseGet(() -> {
-                    logger.warn("Personal no encontrado para actualización con ID: {}", id);
-                    return ResponseEntity.notFound().build();
-                });
-    }
-
-    @PatchMapping("/{id}")
-    public ResponseEntity<Personal> patchPersonal(@PathVariable Long id, @RequestBody Personal partial) {
-        logger.info("personal con ID: {}", id);
-        return findPersonalById(id)
-                .map(existing -> {
-                    if (partial.getNombre() != null) existing.setNombre(partial.getNombre());
-                    if (partial.getRol() != null) existing.setRol(partial.getRol());
-                    if (partial.getIdEmpleado() != null) existing.setIdEmpleado(partial.getIdEmpleado());
-
-                    logger.info("Personal parcialmente actualizado: {}", existing);
-                    return ResponseEntity.ok(existing);
-                })
-                .orElseGet(() -> {
-                    logger.warn("Personal no encontrado con ID: {}", id);
-                    return ResponseEntity.notFound().build();
-                });
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deletePersonal(@PathVariable Long id) {
-        logger.info("eliminar personal con ID: {}", id);
-        boolean removed = personalList.removeIf(p -> p.getId().equals(id));
-
-        if (removed) {
-            logger.info("Personal eliminado con ID: {}", id);
-            return ResponseEntity.ok("Personal eliminado con éxito.");
+        if (personal.isPresent()) {
+            return ResponseEntity.ok(personal.get());
         } else {
-            logger.warn("No se encontró personal con ID: {} para eliminar.", id);
-            return ResponseEntity.status(404).body("Personal no encontrado.");
+            logger.warn("Personal con ID {} no encontrado", id);
+            return ResponseEntity.status(404).body("Personal no encontrado");
         }
     }
 
-    private Optional<Personal> findPersonalById(Long id) {
-        return personalList.stream().filter(p -> p.getId().equals(id)).findFirst();
+    @PostMapping
+    public ResponseEntity<?> createPersonal(@RequestBody Personal personal) {
+        if (personal.getId() == null) {
+            logger.error("Error: ID es requerido para crear personal");
+            return ResponseEntity.badRequest().body("El ID es requerido para crear un registro de personal");
+        }
+
+        if (personalList.stream().anyMatch(p -> p.getId().equals(personal.getId()))) {
+            logger.error("Error: Personal con ID {} ya existe", personal.getId());
+            return ResponseEntity.badRequest().body("El ID del personal ya está registrado");
+        }
+
+        personalList.add(personal);
+        logger.info("Personal creado exitosamente con ID: {}", personal.getId());
+        return ResponseEntity.ok(personal);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updatePersonal(@PathVariable Long id, @RequestBody Personal personal) {
+        Optional<Personal> existingPersonal = personalList.stream()
+                .filter(p -> p.getId().equals(id))
+                .findFirst();
+
+        if (existingPersonal.isEmpty()) {
+            logger.warn("No existe personal con ID {} para actualizar", id);
+            return ResponseEntity.status(404).body("Personal no encontrado");
+        }
+
+        Personal toUpdate = existingPersonal.get();
+        toUpdate.setNombre(personal.getNombre());
+        toUpdate.setRol(personal.getRol());
+        toUpdate.setIdEmpleado(personal.getIdEmpleado());
+
+        logger.info("Personal con ID {} actualizado exitosamente", id);
+        return ResponseEntity.ok(toUpdate);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletePersonal(@PathVariable Long id) {
+        boolean removed = personalList.removeIf(p -> p.getId().equals(id));
+        if (removed) {
+            logger.info("Personal con ID {} eliminado correctamente", id);
+            return ResponseEntity.ok("Personal eliminado exitosamente");
+        }
+        logger.warn("No se encontró personal con ID {} para eliminar", id);
+        return ResponseEntity.status(404).body("Personal no encontrado");
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<?> partialUpdatePersonal(@PathVariable Long id, @RequestBody Personal updates) {
+        Optional<Personal> personalOpt = personalList.stream()
+                .filter(p -> p.getId().equals(id))
+                .findFirst();
+
+        if (personalOpt.isEmpty()) {
+            logger.warn("Personal con ID {} no encontrado para actualización", id);
+            return ResponseEntity.status(404).body("Personal no encontrado");
+        }
+
+        Personal personal = personalOpt.get();
+
+        if (updates.getNombre() != null) {
+            personal.setNombre(updates.getNombre());
+            logger.info("Nombre actualizado para personal ID: {}", id);
+        }
+        if (updates.getRol() != null) {
+            personal.setRol(updates.getRol());
+            logger.info("Rol actualizado para personal ID: {}", id);
+        }
+        if (updates.getIdEmpleado() != null) {
+            personal.setIdEmpleado(updates.getIdEmpleado());
+            logger.info("ID de empleado actualizado para personal ID: {}", id);
+        }
+
+        logger.info("Personal con ID {} actualizado parcialmente", id);
+        return ResponseEntity.ok(personal);
     }
 }
