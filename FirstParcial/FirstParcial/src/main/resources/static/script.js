@@ -75,7 +75,7 @@ async function getAll() {
         const data = await response.json();
         displayResult(`GET Todos los ${currentEntity}:`, data);
     } catch (error) {
-        displayError('Error en GET Todos:', error);
+        displayError('Error en Buscar Todos:', error);
     }
 }
 
@@ -137,7 +137,7 @@ function setupForm(operation, title) {
 
 async function createItem() {
     const itemData = getFormData();
-    console.log('Datos a enviar:', itemData); // Para depuración
+    console.log('Datos a enviar:', itemData);
 
     try {
         const response = await fetch(`${API_BASE}/${currentEntity}`, {
@@ -158,7 +158,7 @@ async function createItem() {
         displayResult(`${currentEntity.substring(0, currentEntity.length-1)} creado (POST):`, data);
         hideForm();
     } catch (error) {
-        displayError('Error en POST:', error);
+        displayError('Error en agregar:', error);
     }
 }
 
@@ -180,7 +180,7 @@ async function updateItem() {
         displayResult(`${currentEntity.substring(0, currentEntity.length-1)} actualizado (PUT):`, data);
         hideForm();
     } catch (error) {
-        displayError('Error en PUT:', error);
+        displayError('Error en actualizar:', error);
     }
 }
 
@@ -202,7 +202,7 @@ async function patchItem() {
         displayResult(`${currentEntity.substring(0, currentEntity.length-1)} modificado (PATCH):`, data);
         hideForm();
     } catch (error) {
-        displayError('Error en PATCH:', error);
+        displayError('Error en actualizar parcial:', error);
     }
 }
 
