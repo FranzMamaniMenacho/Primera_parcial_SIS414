@@ -11,13 +11,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function performAction(method, url = '') {
         const idInput = getIdInput(url);
         const dataInput = getFormData(url);
-
-
         let finalUrl = url;
         if (idInput) {
             finalUrl = url.replace("{id}", idInput);
         }
-
         const fullUrl = 'http://localhost:8080' + finalUrl;
 
         let options = {
@@ -188,6 +185,5 @@ document.addEventListener('DOMContentLoaded', function () {
             listElement.appendChild(listItem);
         }
     }
-
     setupActionButtons();
 });

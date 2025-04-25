@@ -1,0 +1,31 @@
+2025-04-22 10:53:51 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 2364 (C:\SIS414\FirstParcial\FirstParcial\build\classes\java\main started by admin in C:\SIS414\FirstParcial)
+2025-04-22 10:53:51 - No active profile set, falling back to 1 default profile: "default"
+2025-04-22 10:53:53 - Tomcat initialized with port 8080 (http)
+2025-04-22 10:53:53 - Starting service [Tomcat]
+2025-04-22 10:53:53 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-22 10:53:53 - Initializing Spring embedded WebApplicationContext
+2025-04-22 10:53:53 - Root WebApplicationContext: initialization completed in 2333 ms
+2025-04-22 10:53:53 - Adding welcome page: class path resource [static/index.html]
+2025-04-22 10:53:54 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-22 10:53:54 - Started FirstParcialSis414Application in 4.386 seconds (process running for 5.23)
+2025-04-22 10:54:19 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-22 10:54:19 - Initializing Servlet 'dispatcherServlet'
+2025-04-22 10:54:19 - Completed initialization in 0 ms
+2025-04-22 10:55:07 - Se ha creado una nueva habitación con ID: 1
+2025-04-22 10:55:09 - Solicitando lista de habitaciones.
+2025-04-22 10:55:11 - Solicitando lista de habitaciones.
+2025-04-22 10:55:35 - Se ha creado una nueva habitación con ID: 2
+2025-04-22 10:55:36 - Solicitando lista de habitaciones.
+2025-04-22 10:55:45 - Solicitando habitación con ID: 2
+2025-04-22 10:55:45 - Habitación encontrada: 2
+2025-04-22 10:56:07 - Solicitando habitación con ID: 1
+2025-04-22 10:56:07 - Habitación encontrada: 1
+2025-04-22 10:56:20 - Solicitando lista de habitaciones.
+2025-04-22 10:56:54 - Cliente agregado con ID: 1
+2025-04-22 10:56:55 - Solicitando lista de clientes.
+2025-04-22 10:58:00 - Nuevo pago creado: FirstParcial.sis414.FirstParcial.entity.Pago@1b817112
+2025-04-22 10:58:02 - Solicitando lista de todos los pagos.
+2025-04-22 11:01:18 - Nuevo personal agregado: FirstParcial.sis414.FirstParcial.entity.Personal@3131c22e
+2025-04-22 11:01:21 - Solicitando todos los registros de personal.
+2025-04-22 11:01:23 - Nuevo personal agregado: FirstParcial.sis414.FirstParcial.entity.Personal@4ae616c0
+2025-04-22 11:01:25 - Solicitando todos los registros de personal.
